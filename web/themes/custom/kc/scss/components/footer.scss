@@ -1,4 +1,28 @@
 footer {
-  background-color: $gray-1;
+  background-color: $primary;
   padding-bottom: 6rem;
+
+  .nav[data-block="footer"] {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 3rem;
+
+    &>li {
+      span.nav-link {
+        font-family: 'Mulish-Black';
+        &.dropdown-toggle {
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+    }
+  }
 }

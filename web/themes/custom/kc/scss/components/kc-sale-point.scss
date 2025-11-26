@@ -1,0 +1,13 @@
+.kc-sale-point{
+  &__address {
+    margin-bottom: 24px;
+  }
+
+  &__phone {
+    margin-bottom: 24px;
+
+    .ks-phone-link {
+      font-size: 24px;
+    }
+  }
+}

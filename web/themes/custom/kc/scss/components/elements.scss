@@ -45,13 +45,13 @@ nav[aria-label="breadcrumb"] {
 
   &.flag-favorite {
     svg {
-      stroke: $secondary;
+      stroke: $pink-300;
     }
   }
 
   &.action-unflag {
     svg {
-      fill: $secondary;
+      fill: $pink-300;
     }
   }
 }
@@ -86,4 +86,9 @@ nav[aria-label="breadcrumb"] {
 .nav-tabs {
   font-size: 16px;
   font-family: 'Mulish-Bold';
+}
+
+.ks-phone-link {
+  text-decoration: none;
+  font-family: 'Mulish-Black';
 }

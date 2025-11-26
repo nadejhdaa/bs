@@ -19,11 +19,11 @@
 {% if base_class %}
   {% set classes = classes|merge(['splide', 'kc-slider', 'kc-slider-items', 'kc-slider-items--' ~ base_class]) %}
 {% endif %}
- 
+
 <div {{ attributes.addClass(classes) }}>
 
   {% if arrows %}
-    <div class="container">
+    <div class="container g-0">
       <div class="kc-slider-items__arrows-wrapper">
 
         <div class="kc-slider-items__heading">

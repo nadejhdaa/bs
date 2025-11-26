@@ -69,7 +69,8 @@
     height: 100%;
 
     &-heading {
-      font-family: Mulish-bold;
+      font-family: "Mulish-Bold";
+      text-transform: uppercase;
     }
 
     a {
@@ -92,8 +93,14 @@
   }
 
   &__body-heading {
-    margin-bottom: 22px;
-    font-size: 30px;
+    margin-bottom: 32px;
+    font-size: 26px;
+    font-family: "Mulish-Black";
+    text-transform: uppercase;
+
+    a {
+      color: $primary;
+    }
   }
 
   &__body-item {

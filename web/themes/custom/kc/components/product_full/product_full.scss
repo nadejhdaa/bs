@@ -1,5 +1,6 @@
 @import '../../scss/color';
 @import '../../scss/variables_drupal';
+@import '../../../../../themes/contrib/bootstrap5/scss/style';
 
 .kc-product-full {
   h1 {
@@ -65,17 +66,17 @@
       }
 
       &:hover {
-        color: $secondary;
+        color: $pink-300;
 
         svg {
-          stroke: $secondary;
+          stroke: $pink-300;
         }
       }
     }
 
     &.action-unflag {
       a {
-        background-color: $secondary;
+        background-color: $pink-300;
         color: $white;
 
         svg {

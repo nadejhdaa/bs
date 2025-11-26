@@ -15,6 +15,18 @@
     flex-direction: column;
   }
 
+  .kc-point-gallery__address-info {
+    flex-grow: 1;
+  }
+
+  .kc-point-gallery__phone {
+    margin-bottom: 24px;
+  }
+
+  .kc-point-gallery__address p {
+
+  }
+
   .kc-point-gallery__address {
     flex-grow: 1;
   }

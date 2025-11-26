@@ -141,6 +141,19 @@ function kc_preprocess_field__field_img__commerce_product__full(&$variables) {
 /**
  * Implement hook_preprocess_hook().
  */
+function kc_preprocess_field__node__field_images__point(&$variables) {
+  $element = $variables['element'];
+
+  foreach ($variables['items'] as $key => $item) {
+    if (!empty($item['content']['#item']->entity)) {
+      $variables['thumbnails'][] = $item['content']['#item']->entity->field_media_image->entity->getFileUri();
+    }
+  }
+}
+
+/**
+ * Implement hook_preprocess_hook().
+ */
 function kc_preprocess_field__field_skin_type__commerce_product__full(&$variables) {
   $variables['attributes']['class'][] = 'kc-field-display-inline';
   $variables['attributes']['class'][] = 'd-flex';
@@ -170,3 +183,12 @@ function kc_preprocess_field__field_skin_type__commerce_product__full(&$variable
      ];
    }
  }
+
+ /**
+  * Implement hook_preprocess_hook().
+  */
+  function kc_preprocess_field__node__field_phone__point(&$variables) {
+    foreach ($variables['items'] as $key => $item) {
+      $variables['items'][$key]['content']['#template'] = '{{ drupal_link(value, "tel:"~value, {attributes: {class: ["ks-phone-link"]}}) }}';
+    }
+  }

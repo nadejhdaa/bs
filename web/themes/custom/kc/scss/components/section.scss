@@ -1,5 +1,14 @@
 section {
   &.kc-section {
-    margin-bottom: 90px;
+    margin-bottom: 86px;
+  }
+}
+
+.kc-section {
+  &__heading {
+    font-family: "Mulish-Bold";
+    font-size: 32px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
   }
 }
