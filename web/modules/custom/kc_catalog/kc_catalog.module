@@ -1,0 +1,138 @@
+<?php
+
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_theme().
+ */
+function kc_catalog_theme() {
+  return [
+    'main_catalog_brand_links' => [
+      'variables' => [
+        'terms_data' => [],
+        'title_link' => [],
+      ],
+      'template' => 'main-catalog-brand-links',
+    ],
+    'main_catalog_body_link' => [
+      'variables' => [
+        'terms_data' => [],
+        'title_link' => [],
+      ],
+      'template' => 'main-catalog-body-link',
+    ],
+  ];
+}
+
+
+function kc_catalog_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $view_ids = ['brands_listing'];
+  $view = $form_state->getStorage('view');
+
+  if ($form_id == 'views_exposed_form' && in_array($view['view']->id(), $view_ids)) {
+    $catalog_menu = Drupal::service('kc_catalog.catalog_menu');
+    $fields_info = $catalog_menu->getFieldsInfo();
+
+    $input = $form_state->getUserInput();
+
+    $selected_product_type = $input['type'];
+
+    if ($selected_product_type !== 'All') {
+      $selected_product_type = $input['type'];
+
+      $active_tids = $catalog_menu->getActiveTids($selected_product_type);
+
+      $field_info = $fields_info[$selected_product_type];
+
+      if (!empty($active_tids)) {
+        $active_tids = array_keys($active_tids);
+        $terms = \Drupal::service('entity_type.manager')->getStorage('taxonomy_term')->loadMultiple($active_tids);
+
+        foreach ($terms as $tid => $term) {
+          if (empty($options_chunks[$term->bundle()]['All'])) {
+            $options_chunks[$term->bundle()]['All'] = t('- Any -');
+          }
+          $options_chunks[$term->bundle()][$tid] = $term->getName();
+        }
+
+        $excluded_vids = ['marketing', 'brands'];
+
+        $form['additional'] = [
+          '#type' => 'container',
+        ];
+
+
+        foreach ($field_info as $field_info_item) {
+          $vid = $field_info_item['vid'];
+
+          if (!in_array($vid, $excluded_vids) && !empty($options_chunks[$vid])) {
+            $options = $options_chunks[$vid];
+            $label = $field_info_item['label'];
+
+            $vocabulary = Vocabulary::load($vid);
+            $weight = $vocabulary->get('weight');
+
+            $form['additional'][$field_info_item['machine_name']] = [
+              '#title' => $label,
+              '#type' => 'radios',
+              '#options' => $options,
+              '#prefix' => '<div class="clearfix">',
+              '#suffix' => '</div>',
+              '#attributes' => [
+                'data-vid' => $vid,
+              ],
+              '#weight' => $weight,
+            ];
+          }
+        }
+      }
+    }
+  }
+}
+
+function kc_catalog_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  if ($view->id() == 'brands_listing') {
+
+    $exposed_input = $view->getExposedInput();
+    $exclude_keys = ['field_marketing_target_id'];
+
+    if (!empty($exposed_input)) {
+
+      foreach ($exposed_input as $key => $value) {
+        if (substr($key, 0, 6) == 'field_' && $value != 'All' && !in_array($key, $exclude_keys)) {
+
+          $join_table = 'commerce_product__' . $key;
+          $join_table_field = $key . '_target_id';
+
+          $configuration = [
+            'type'       => 'INNER',
+            'table'      => $join_table,
+            'field'      => 'entity_id',
+            'left_table' => 'commerce_product_field_data',
+            'left_field' => 'product_id',
+            'operator'   => '=',
+          ];
+
+          $join = \Drupal\views\Views::pluginManager('join')->createInstance('standard', $configuration);
+          $rel = $query->addRelationship('my_alias', $join, $join_table);
+
+          $query->addTable($join_table, $rel, $join, 'my_alias');
+
+          $query->addWhere('0', 'my_alias.' . $join_table_field, $value, '=');
+
+          // $join = new Drupal\views\Plugin\views\join();
+        // $join->table = 'my_custom_table';
+        // $join->field = 'entity_id';
+        // $join->left_table = 'node';
+        // $join->left_field = 'nid';
+        // $join->type = 'LEFT';
+        // $query->addRelationship('my_custom_join', $join, 'node');
+        }
+      }
+    }
+  }
+}

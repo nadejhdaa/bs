@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-5 col-xs-12">
+    <span class="promo__img">
+      {{ drupal_image(image_uri) }}
+    </span>
+  </div>
+
+  <div class="col-md-7 col-xs-12 promo__text">
+    {% block title %}
+      {{ description|raw }}
+    {% endblock %}
+
+    <a href="{{ link.get(0).getUrl().toString() }}" class="bg_img_and_link_medium promo__link btn btn-secondary mt-5 rounded-pill">
+      {{ link.title }}
+  </a>
+
+
+  </div>
+</div>

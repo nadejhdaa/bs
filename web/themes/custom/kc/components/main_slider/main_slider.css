@@ -1,0 +1,17 @@
+.kc-main-slider {
+  overflow: hidden;
+}
+.kc-main-slider__navigation {
+  position: absolute;
+  z-index: 50;
+  left: 50%;
+}
+.kc-main-slider__col {
+  position: relative;
+}
+.kc-main-slider__navigation-elements {
+  position: relative;
+  bottom: 2rem;
+}
+
+/*# sourceMappingURL=main_slider.css.map */

@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display tabs layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout wrapper.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+
+  {# @DCG Drupal naming convention for CSS classes in layouts seems weird. Feel free to change it. #}
+  {%
+    set classes = [
+      'accordion',
+      'main-catalog',
+
+      'collapse'
+    ]
+  %}
+
+  {% set main_id = 'mainCatalog' %}
+
+  <a class="main-catalog__collapse-btn btn btn-primary rounded-pill" data-bs-toggle="collapse" href="#{{ main_id }}" role="button" aria-expanded="false" aria-controls="{{ main_id }}">
+    {{ 'Catalog'|t }}
+  </a>
+
+  <div{{ attributes.addClass(classes).setAttribute('id', main_id) }}>
+    <div class="container">
+
+      <div class="main-catalog__cols d-flex">
+        {% if content.main_items %}
+          <div class="main-catalog__items">
+            {{ content.main_items }}
+          </div>
+        {% endif %}
+
+        {% if content.main_body %}
+          <div class="main-catalog__body">
+            {{ content.main_body }}
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+
+{% endif %}

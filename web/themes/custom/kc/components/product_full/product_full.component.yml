@@ -1,0 +1,28 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Product full
+status: stable
+props:
+  type: object
+  properties:
+    product:
+      type: object
+      title: Product
+      # @todo Add examples here.
+      examples: []
+    type:
+      type: string
+      title: Type
+      # @todo Add examples here.
+      examples: []
+    flag_link:
+      type: array
+      title: Flag link
+    price:
+      type: string
+      title: Price
+    title:
+      type: string
+      title: Title
+    variation:
+      type: string
+      title: Variation

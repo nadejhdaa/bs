@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<article{{ attributes.addClass('kc-product-card__wrapper') }}>
+  {% embed "kc:product_card" with {
+    img: product.field_img,
+    title: product.title,
+    type: type,
+    add_to_cart: product.variations,
+    url: product_url,
+    price: price_markup,
+    flag_link: flag_link,
+    } %}
+  {% endembed %}
+
+
+</article>

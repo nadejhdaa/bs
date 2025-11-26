@@ -1,0 +1,24 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Thumbnail carousel
+status: stable
+libraryOverrides:
+  dependencies:
+    - core/once
+    - core/drupalSettings
+    - kc/splide
+    - photoswipe/photoswipe.local
+props:
+  type: object
+  properties:
+    items:
+      type: array
+      title: Items
+    thumbnails:
+      type: array
+      title: Thumbnails
+    thumbnail_carousel_classes:
+      type: array
+      title: Thumbnail carousel casses
+    main_carousel_classes:
+      type: array
+      title: Main carousel casses

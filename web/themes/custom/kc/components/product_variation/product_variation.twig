@@ -1,0 +1,35 @@
+<div {{ attributes }}>
+
+  {% if color %}
+    <div class="kc-product-variation__color">
+      {% if color.color %}
+        <div class="kc-product-variation__color-value" style="background: {{ color.color }}">
+        </div>
+      {% endif %}
+
+      {% if color.label or color.color_name %}
+        <div class="kc-product-variation__color-info">
+          {% if color.label %}
+            <div class="kc-product-variation__color-label">
+              {{ color.label }}
+            </div>
+          {% endif %}
+
+          {% if color.color_name %}
+            <div class="kc-product-variation__color-name">
+              {{ color.color_name }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+    </div>
+  {% endif %}
+
+  {% if sizes %}
+    <div class="kc-product-variation__sizes">
+      {{ sizes }}
+    </div>
+  {% endif %}
+
+</div>

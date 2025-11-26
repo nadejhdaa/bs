@@ -1,0 +1,17 @@
+.thumbnail-carousel {
+  .splide__track--nav > .splide__list > .splide__slide {
+    overflow: hidden;
+    border-radius: 12px;
+    border-width: 1px transparent solid;
+  }
+
+  .splide__track--nav > .splide__list > .splide__slide.is-active {
+    border-width: 1px;
+
+
+  }
+}
+
+.thumbnail-carousel__main {
+  margin-bottom: 24px;
+}

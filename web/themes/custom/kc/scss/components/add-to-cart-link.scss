@@ -1,0 +1,56 @@
+.kc-add-to-cart-link{
+  margin-top: 16px;
+
+  &__link {
+    display: inline-flex;
+    justify-content: center;
+    border-radius: $border_radius_pill;
+    background-color: $gray-1;
+    font-family: 'Mulish-Bold';
+    justify-content: space-around;
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  &__quantity {
+    padding: $btn_padding_y 16px;
+    flex-grow: 1;
+    justify-content: center;
+    display: flex;
+  }
+
+  &__quantity-link {
+    padding: $btn_padding_y 16px;
+    display: flex;
+    font-size: 24px;
+    line-height: 1;
+    flex-grow: 1;
+    min-width: 74px;
+    justify-content: center;
+    text-decoration: none;
+
+    &:hover {
+      color: currentcolor;
+    }
+  }
+
+  &__variation_links {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  &__variation-link {
+    text-decoration: none;
+    background-color: $gray-1;
+    padding: 8px 16px;
+    border-radius: 16px;
+
+    &.active {
+      color: $white;
+      background-color: $primary;
+    }
+  }
+}

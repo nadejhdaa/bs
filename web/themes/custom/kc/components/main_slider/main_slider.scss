@@ -1,0 +1,18 @@
+.kc-main-slider {
+  overflow: hidden;
+
+  &__navigation {
+    position: absolute;
+    z-index: 50;
+    left: 50%;
+  }
+
+  &__col {
+    position: relative;
+  }
+
+  &__navigation-elements {
+    position: relative;
+    bottom: 2rem;
+  }
+}

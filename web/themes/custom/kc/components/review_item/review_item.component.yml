@@ -1,0 +1,24 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Review item
+status: stable
+props:
+  type: object
+  properties:
+    img:
+      type: string
+      title: Img
+      # @todo Add examples here.
+      examples: []
+    description:
+      type: string
+      title: Description
+    items:
+      type: string
+      title: Items
+      # @todo Add examples here.
+      examples: []
+    classes:
+      type: array
+      title: Classes
+      # @todo Add examples here.
+      examples: []

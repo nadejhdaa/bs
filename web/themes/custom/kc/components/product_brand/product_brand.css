@@ -1,0 +1,17 @@
+.kc-product-brand__link {
+  display: inline-flex;
+  gap: 18px;
+  align-items: center;
+  text-decoration: none;
+  font-family: 'Mulish-Semibold';
+  margin-bottom: 42px;
+}
+
+.kc-product-brand__title {
+  font-size: 26px;
+}
+
+.kc-product-brand__img {
+  width: 72px;
+  height: 72px;
+}

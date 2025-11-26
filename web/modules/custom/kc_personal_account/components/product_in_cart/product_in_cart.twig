@@ -1,0 +1,38 @@
+<div{{ attributes }}>
+
+  <div class="kc-product-in-cart__img">
+    {% if img_uri %}
+      <a href="{{ url }}" class="kc-product-in-cart__product-info__img-link">
+        {{ drupal_image(img_uri, 'product_small', {alt: title, title: title}) }}
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="kc-product-in-cart__product-info">
+
+    <div class="kc-product-in-cart__product-info__title">
+      {% if product_type %}
+        <div class="kc-product-in-cart__product-info__product-type">
+          {{ product_type }}
+        </div>
+      {% endif %}
+
+      <a href="{{ url }}" class="kc-product-in-cart__product-info__title-link">
+        {{ title }}
+      </a>
+    </div>
+
+    <div class="kc-product-in-cart__links">
+      {{ favorite_link }}
+
+      <a href="{{ url('kc_personal_account.remove_item_from_order_ajax_callback', { order_id: order_id }) }}" class="use-ajax kc-product-in-cart__item__delete-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><g clip-path="url(#a)"><path fill="#111" fill-rule="evenodd" d="M15.887 5.158a.75.75 0 1 0-1.061-1.06L9.984 8.94 5.14 4.097a.75.75 0 0 0-1.06 1.061L8.922 10 4.08 14.842a.75.75 0 1 0 1.06 1.06l4.843-4.841 4.842 4.842a.75.75 0 1 0 1.061-1.06L11.044 10l4.843-4.842Z" clip-rule="evenodd"></path></g><defs><clipPath id="a"><rect width="20" height="20"></rect></clipPath></defs></svg>
+      </a>
+    </div>
+
+  </div>
+
+
+
+
+</div>

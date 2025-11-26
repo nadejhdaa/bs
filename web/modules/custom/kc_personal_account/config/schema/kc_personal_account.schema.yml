@@ -1,0 +1,7 @@
+field.formatter.settings.kc_personal_account_add_to_cart_link:
+  type: mapping
+  label: Add to cart link formatter settings
+  mapping:
+    display_variations:
+      type: boolean
+      label: 'Should the option to select a product variation be displayed?'

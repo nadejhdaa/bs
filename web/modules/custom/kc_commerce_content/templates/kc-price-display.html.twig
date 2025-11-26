@@ -1,0 +1,11 @@
+{% if price %}
+  {{ price }} {{ symbol }}
+{% endif %}
+
+{% if old_price %}
+  <del>{{ old_price }} {{ symbol }}</del>
+{% endif %}
+
+{% if percent %}
+  <span class="discount">{{ percent }}</span>
+{% endif %}

@@ -1,0 +1,19 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Main slider
+status: stable
+props:
+  type: object
+  properties:
+    classes:
+      type: array
+    items:
+      type: array
+      title: Slider items
+libraryOverrides:
+  dependencies:
+    - core/drupalSettings
+    - core/once
+    - kc/splide
+slots:
+  content:
+    title: Content

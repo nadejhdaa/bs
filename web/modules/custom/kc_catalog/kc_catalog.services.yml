@@ -1,0 +1,4 @@
+services:
+  kc_catalog.catalog_menu:
+    class: Drupal\kc_catalog\CatalogMenu
+    arguments: ['@entity_type.manager']

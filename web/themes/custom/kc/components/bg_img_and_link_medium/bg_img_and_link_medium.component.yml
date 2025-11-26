@@ -1,0 +1,25 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Bg img and link medium
+status: stable
+props:
+  type: object
+  properties:
+    image_uri:
+      type: string
+      title: Image uri
+      # @todo Add examples here.
+      examples: []
+    link:
+      type: object
+      title: Link
+      # @todo Add examples here.
+      examples: []
+    classes:
+      type: array
+      title: Classes
+    description:
+      type: string
+      title: Description
+slots:
+  title:
+    title: title

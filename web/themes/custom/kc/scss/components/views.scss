@@ -1,0 +1,75 @@
+.view-filters {
+  margin-bottom: 3rem;
+}
+
+.bef-exposed-form {
+  .form--inline {
+    &> .form-item {
+      float: none;
+    }
+
+    .fieldset-wrapper {
+      margin-top: 12px;
+    }
+  }
+
+  .fieldset-wrapper {
+    .form-radios {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .form-radios {
+    .form--inline {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.form-type-radio {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+
+  input {
+    position: absolute;
+    left: -20px;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+
+    & + label {
+      background: $gray-1;
+      padding: 6px 32px;
+      border-radius: 16px;
+      cursor: pointer;
+      display: block;
+      font-family: 'Mulish-SemiBold';
+      font-size: 16px;
+    }
+
+    &:checked {
+      & + label {
+        background: $primary;
+        color: $white;
+      }
+    }
+  }
+}
+
+.view-content{
+  &.row {
+    gap: 2.63rem 0px;
+    margin-top: 6rem;
+  }
+}
+
+.form-composite {
+  & > legend {
+    font-family: 'Mulish-bold';
+    display: block;
+  }
+}

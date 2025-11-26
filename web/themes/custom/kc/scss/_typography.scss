@@ -1,0 +1,112 @@
+.heading{
+  &--bold {
+    font-family: 'Mulish-SemiBold';
+  }
+
+  &-2 {
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 60px;
+
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &-3 {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 12px;
+  }
+}
+
+.subtitle {
+  font-family: 'Mulish-Black';
+  font-size: 1rem;
+  line-height: 1.5rem;
+
+  &-3 {
+    font-family: 'Mulish-Black';
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  h1, .h1 {
+    font-size: 42px;
+    line-height: 55px;
+    margin-bottom: 60px;
+    font-family: 'Mulish-Black';
+    margin-top: 10px;
+  }
+
+  h2 {
+    font-family: 'Mulish-Black';
+    font-size: 54px;
+    line-height: 76px;
+    margin-bottom: 40px;
+  }
+
+  h3 {
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: 32px;
+    font-family: 'Mulish-Black';
+  }
+
+  h4 {
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 24px;
+    font-family: 'Mulish-Black';
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  h1, .h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-family: 'Mulish-Black';
+    font-size: 28px;
+    line-height: 30px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  h1, .h1 {
+    font-size: 2.19rem;
+  }
+
+  h2 {
+    font-family: 'Mulish-Black';
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+
+.text-formatted {
+  ul {
+    list-style: none;
+
+    li {
+      position: relative;
+      margin-bottom: 6px;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 2px;
+        content: "";
+        border-radius: 3px;
+        top: 11px;
+        left: -19px;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.kc-brand-promo-info {
+  margin-bottom: 96px;
+
+  &__brand-link {
+    text-decoration: none;
+    font-family: 'Mulish-Black';
+    font-size: 24px;
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  &__img {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+}
+
+.brands {
+  &__link-wrapper {
+    padding: 0 26px;
+  }
+}
+
+
+.promo{
+  &__img {
+    border-radius: 16px;
+    overflow: hidden;
+    display: block;
+  }
+}

@@ -1,0 +1,111 @@
+.kc-product-full h1 {
+  margin-bottom: 36px;
+}
+.kc-product-full__type {
+  margin-bottom: 30px;
+  color: #888;
+  font-size: 20px;
+  font-family: "Mulish-Semibold";
+}
+.kc-product-full__product-type {
+  margin-bottom: 30px;
+}
+.kc-product-full__product-type a {
+  font-family: "Mulish-Semibold";
+}
+.kc-product-full__rating {
+  font-size: 16px;
+  display: flex;
+  align-content: center;
+  gap: 10px;
+  color: #888;
+  margin-bottom: 24px;
+}
+.kc-product-full__price {
+  font-size: 36px;
+  margin-bottom: 24px;
+  font-family: "Mulish-Bold";
+}
+.kc-product-full__add-to-favorite {
+  position: relative;
+  margin-bottom: 36px;
+}
+.kc-product-full .flag {
+  display: inline-flex !important;
+  line-height: 1;
+}
+.kc-product-full .flag a {
+  display: flex !important;
+  gap: 16px;
+  text-decoration: none;
+  align-items: center;
+  padding: 15px 24px;
+  border-radius: 36px;
+  color: #ccc;
+  transition: 0.2s ease all;
+  font-size: 16px;
+  background-color: #fff;
+  font-family: "Mulish-Semibold";
+}
+.kc-product-full .flag a svg {
+  stroke: #ccc;
+  height: auto;
+  width: 30px;
+}
+.kc-product-full .flag a:hover {
+  color: #d63384;
+}
+.kc-product-full .flag a:hover svg {
+  stroke: #d63384;
+}
+.kc-product-full .flag.action-unflag a {
+  background-color: #d63384;
+  color: #fff;
+}
+.kc-product-full .flag.action-unflag a svg {
+  stroke: #fff;
+  fill: #fff;
+}
+.kc-product-full .flag.action-unflag svg {
+  stroke: #d63384;
+}
+.kc-product-full .kc-add-to-cart-link__add-to-cart-link {
+  padding: 22px 16px;
+  font-size: 26px;
+}
+.kc-product-full .kc-add-to-cart-link__link {
+  width: 320px;
+}
+.kc-product-full .kc-add-to-cart-link__quantity {
+  padding: 22px 16px;
+}
+.kc-product-full .kc-add-to-cart-link__quantity-link {
+  padding: 22px 16px;
+}
+.kc-product-full__price del {
+  color: #999;
+  font-size: 28px;
+}
+.kc-product-full__tabs {
+  border-bottom: 3px solid #eee !important;
+}
+.kc-product-full__tabs .nav-item {
+  position: relative;
+  bottom: -2px;
+}
+.kc-product-full__tabs .nav-link {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  margin-bottom: 0 !important;
+  color: #000;
+  position: relative;
+  bottom: -1px;
+}
+.kc-product-full__tabs .nav-link.active {
+  color: #01a49e !important;
+  background-color: transparent !important;
+  border-bottom: 3px solid #01a49e !important;
+}
+
+/*# sourceMappingURL=product_full.css.map */

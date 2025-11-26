@@ -1,0 +1,32 @@
+.kc-action-card {
+  min-height: 420px;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2rem;
+  height: 100%;
+
+  &__heading {
+    font-family: "Mulish-Black";
+    font-size: 28px;
+    margin-bottom: 28px;
+    line-height: 1.3;
+  }
+
+  &__description {
+    flex-grow: 1;
+    font-size: 18px;
+  }
+
+  &__link {
+    text-decoration: none;
+    display: inline-flex;
+    background: #fff;
+    border-radius: 32px;
+    padding: 14px 38px;
+    font-family: "Mulish-Bold";
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 24px 0;
+  }
+}

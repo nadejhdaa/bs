@@ -1,0 +1,25 @@
+name: 'KC theme'
+type: theme
+description: 'KC theme subtheme based on Bootstrap 5 theme.'
+core_version_requirement: '^10.1 || ^11.0'
+'base theme': bootstrap5
+libraries:
+  - kc/global-styling
+ckeditor_stylesheets:
+  - css/style.css
+ckeditor5-stylesheets:
+  - css/ck5style.css
+regions:
+  header_catalog: 'Header catalog region'
+  header_user: Header user region
+  header_branding: 'Header branding region'
+  main_banner: 'Main banner region'
+  main_links: 'Main links region'
+  top_content: 'Top content'
+  breadcrumb: Breadcrumbs
+  content: 'Main content'
+  under_content: 'Under main content'
+  footer: Footer
+  hidden: Hidden
+libraries-override:
+  bootstrap5/global-styling: false

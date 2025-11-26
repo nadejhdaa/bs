@@ -1,0 +1,18 @@
+<a href="{{ url }}" class="kc-product-brand__link">
+  {% if term.field_logotype is not empty %}
+    <div class="kc-product-brand__img">
+      {{ source(term.field_logotype|file_url)  }}
+    </div>
+  {% endif %}
+
+  <div class="kc-product-brand__title">
+    {{ term.name.value }}
+  </div>
+
+</a>
+
+{% if term.description %}
+  <div class="kc-product-brand__description">
+    {{ term.description.value|render }}
+  </div>
+{% endif %}

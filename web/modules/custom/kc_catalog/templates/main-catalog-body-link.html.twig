@@ -1,0 +1,50 @@
+<div class="main-catalog__body__item-content main-catalog__body__item-content">
+
+  {% if title_link %}
+    <div class="main-catalog__body__item__label">
+      <h2>
+        {{ drupal_link(title_link.title, title_link.uri, {attributes: {class: ['main-catalog__body__item__label-link d-block']}}) }}
+      </h2>
+    </div>
+  {% endif %}
+
+  <div class="main-catalog__body__item__content">
+
+    {% for parent_item in terms_data %}
+      <div class="main-catalog__body__item__content-row border-bottom py-3 mb-3">
+
+        <div class="main-catalog__body__item__content-row-label">
+          <h3>
+            {{ drupal_link(parent_item.parent.name, 'taxonomy/term/' ~ parent_item.parent.tid, {attributes: {class: ['main-catalog__body__item__label-link d-block']}}) }}
+          </h3>
+        </div>
+
+        <div class="main-catalog__body__item__content-row-items row">
+          {% set col_count =  (parent_item['children']|length / 3) | round %}
+
+          {% for child in parent_item.children %}
+
+            {% if loop.first %}
+              <div class="col-md-4">
+            {% endif %}
+
+            {{ drupal_link(child.name, 'taxonomy/term/' ~ child.tid, {attributes: {class: ['main-catalog__body__item__link d-block']}}) }}
+
+            {% if loop.last %}
+              </div>
+            {% else %}
+              {% if loop.index%col_count == 0  %}
+                </div>
+                <div class="col-md-4">
+              {% endif %}
+            {% endif %}
+
+          {% endfor %}
+        </div>
+
+      </div>
+    {% endfor %}
+
+  </div>
+
+</div>

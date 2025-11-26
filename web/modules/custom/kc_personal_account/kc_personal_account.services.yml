@@ -1,0 +1,4 @@
+services:
+  kc_personal_account.add_to_cart_link_builder:
+    class: Drupal\kc_personal_account\AddToCartLinkBuilder
+    arguments: ['@renderer', '@current_user', '@entity_type.manager', '@commerce_cart.cart_provider']

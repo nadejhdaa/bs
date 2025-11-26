@@ -1,0 +1,148 @@
+$font-path: "../assets/fonts";
+
+// Inter fonts
+@font-face {
+  font-family: 'Inter-Regular';
+  src:
+    url("#{$font-path}/Inter/Inter_18pt-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-SemiBold';
+  src:
+  url("#{$font-path}/Inter/Inter_18pt-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-Black';
+  src:
+    url("#{$font-path}/Inter/Inter_18pt-Black.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-ExtraLight';
+  src:
+    url("#{$font-path}/Inter/Inter_18pt-ExtraLight.ttf");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-ExtraBold';
+  src:
+    url("#{$font-path}/Inter/Inter_18pt-ExtraBold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-ExtraLightItalic';
+  src:
+    url("#{$font-path}/Inter/Inter_18pt-ExtraLightItalic.ttf");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Inter-BlackItalic';
+  src:
+    url("#{$font-path}/Inter/Inter_18pt-BlackItalic.ttf");
+  font-weight: 800;
+  font-style: italic;
+}
+
+// Spectral.
+@font-face {
+  font-family: 'Spectral-Regular';
+  src:
+    url("#{$font-path}/Spectral/Spectral-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Spectral-Medium';
+  src:
+    url("#{$font-path}/Spectral/Spectral-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Spectral-SemiBold';
+  src:
+    url("#{$font-path}/Spectral/Spectral-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Spectral-Bold';
+  src:
+    url("#{$font-path}/Spectral/Spectral-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+// Mulsih
+@font-face {
+  font-family: 'Mulish-Regular';
+  src:
+    url("#{$font-path}/Mulish/Mulish-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish-Light';
+  src:
+    url("#{$font-path}/Mulish/Mulish-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish-ExtraLight';
+  src:
+    url("#{$font-path}/Mulish/Mulish-ExtraLight.ttf");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish-Medium';
+  src:
+    url("#{$font-path}/Mulish/Mulish-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish-SemiBold';
+  src:
+    url("#{$font-path}/Mulish/Mulish-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish-Bold';
+  src:
+    url("#{$font-path}/Mulish/Mulish-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish-Black';
+  src:
+    url("#{$font-path}/Mulish/Mulish-Black.ttf");
+  font-weight: 800;
+  font-style: normal;
+}

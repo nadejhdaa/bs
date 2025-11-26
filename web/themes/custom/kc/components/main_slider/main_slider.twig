@@ -1,0 +1,33 @@
+<div {{ attributes.addClass(classes) }}>
+  <div class="splide__track">
+    <ul class="splide__list">
+
+      {% for item in items %}
+        <li class="kc-main-slider__slider-item splide__slide">
+          {{ item.content }}
+        </li>
+      {% endfor %}
+
+    </ul>
+  </div>
+
+  <div class="kc-main-slider__navigation-elements">
+    <div class="container">
+      <div class="row">
+
+
+
+            <ul class="splide__pagination kc-main-slider__pagination">
+            </ul>
+
+            <div class="splide__navigation kc-main-slider__navigation">
+            </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

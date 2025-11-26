@@ -1,0 +1,36 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Promo brand
+status: stable
+props:
+  type: object
+  properties:
+    img:
+      type: string
+      title: Img
+      # @todo Add examples here.
+      examples: []
+    title:
+      type: string
+      title: Title
+      # @todo Add examples here.
+      examples: []
+    body:
+      type: string
+      title: Body
+      # @todo Add examples here.
+      examples: []
+    url:
+      type: object
+      title: Url
+      # @todo Add examples here.
+      examples: []
+    items:
+      type: array
+      title: Items
+      # @todo Add examples here.
+      examples: []
+slots:
+  top:
+    title: Top
+  slider:
+    title: Slider

@@ -1,0 +1,61 @@
+{% set slider_options = [] %}
+
+{% set slider_options = slider_options|merge(['"perPage" :' ~ per_page]) %}
+
+{% if focus %}
+  {% set slider_options = slider_options|merge(['"focus":"' ~ focus ~ '"']) %}
+{% endif %}
+
+{% if options %}
+  {% for key, value in options %}
+    {% set slider_options = slider_options|merge(['"' ~ key ~ '":"' ~ value ~ '"']) %}
+  {% endfor %}
+{% endif %}
+
+{% set data_splide = '{' ~ slider_options|join(',') ~ '}' %}
+
+{% set attributes = attributes.setAttribute('data-splide', data_splide) %}
+
+{% if base_class %}
+  {% set classes = classes|merge(['splide', 'kc-slider', 'kc-slider-items', 'kc-slider-items--' ~ base_class]) %}
+{% endif %}
+ 
+<div {{ attributes.addClass(classes) }}>
+
+  {% if arrows %}
+    <div class="container">
+      <div class="kc-slider-items__arrows-wrapper">
+
+        <div class="kc-slider-items__heading">
+          {% if heading %}
+            {{ heading }}
+          {% endif %}
+        </div>
+
+        <div class="splide__arrows kc-slider-items__arrows kc-slider-items__arrows{{ base_class ? ' kc-slider-items__arrows--' ~ base_class : ''}}">
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="splide__track">
+    <ul class="splide__list">
+
+      {% for item in items %}
+        <li class="kc-slider-items__slider-item splide__slide">
+          {{- item.content -}}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% if pager %}
+    <div class="kc-slider-items__navigation-elements">
+
+      <ul class="splide__pagination kc-slider-items__pagination{{ base_class ? ' kc-slider-items__pagination--' ~ base_class : ''}}">
+      </ul>
+
+    </div>
+  {% endif %}
+
+</div>

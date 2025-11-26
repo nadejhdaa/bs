@@ -1,0 +1,30 @@
+<div class="thumbnail-carousel">
+
+  {% set main_attributes = create_attribute({class: ['thumbnail-carousel__main', 'splide']}) %}
+
+  <div{{ main_attributes.addClass(main_carousel_classes) }}>
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for item in items %}
+          <li{{ item.attributes.addClass('field__item splide__slide') }}>
+            {{ item.content }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  {% set thumbnail_attributes = create_attribute({class: ['thumbnail-carousel__thumbnails', 'splide']}) %}
+
+  <div{{ thumbnail_attributes.addClass(thumbnail_carousel_classes) }}>
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for thumbnail in thumbnails %}
+          <div class="thumbnail-carousel__thumbnail splide__slide">
+            {{ drupal_image(thumbnail, 'product_full_thumbnail') }}
+          </div>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

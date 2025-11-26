@@ -1,0 +1,118 @@
+.kc-product-card {
+  text-align: center;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .kc-add-to-cart-link__link {
+    width: 100%;
+  }
+
+  .flag {
+    height: 26px;
+
+    &__title {
+      display: none;
+    }
+  }
+
+  &__flag-wrapper {
+    position: absolute;
+    top: 16px;
+    right: 26px;
+  }
+
+  &__product-img {
+    aspect-ratio: 100/100;
+    display: flex;
+    justify-content: center;
+    background-color: $white;
+    border-radius: 22px;
+    overflow: hidden;
+
+    div {
+      max-height: inherit;
+      height: inherit;
+    }
+
+    img {
+      max-height: inherit;
+      height: inherit;
+      width: auto;
+      display: block;
+    }
+  }
+
+  &__product-link {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: 'Mulish-Bold';
+    display: flex;
+    flex-direction: column;
+
+    &--img {
+      margin-bottom: 0;
+      max-height: inherit;
+      height: 100%;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  &__top {
+    position: relative;
+  }
+
+  &__favorite {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 16px;
+    right: 22px;
+  }
+
+  &__wrapper {
+    height: 100%;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 26px 24px;
+
+    @include media-breakpoint-down(md) {
+      padding: 16px 0px;
+    }
+  }
+
+  &__product-price {
+    margin-bottom: 8px;
+    font-family: 'Mulish-bold';
+    font-size: 24px;
+
+    del {
+      color: $gray-4;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-family: 'Mulish-SemiBold';
+    flex-grow: 1;
+    line-height: 1.4;
+  }
+
+  &__product-type {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: $gray-3;
+  }
+}

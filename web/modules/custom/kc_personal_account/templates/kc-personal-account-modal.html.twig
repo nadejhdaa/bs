@@ -1,0 +1,28 @@
+<div class="modal fade" id="{{ id }}" tabindex="-1" aria-labelledby="{{ id }}Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}"></button>
+      <div class="modal-body">
+
+        <ul class="nav nav-tabs kc-product-full__tabs mb-4" id="productTabs" role="tablist">
+          {% for id, form in forms %}
+            <li class="nav-item" role="presentation">
+              <button class="btn rounded-pill btn w-100 {{ loop.index == 1 ? 'active' : '' }}" role="{{ id }}" data-bs-toggle="tab" data-bs-target="#{{ id }}" aria-controls="{{ id }}" aria-selected="{{ loop.index == 1 ? 'true' : 'false' }}">
+                {{ form['title'] }}
+              </button>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="tab-content" id="userLoginTabs">
+          {% for id, form in forms %}
+            <div class="tab-pane fade {{ loop.index == 1 ? 'show active' : '' }}" id="{{ id }}" role="tabpanel" aria-labelledby="{{ id }}">
+              {{ form.form }}
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

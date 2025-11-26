@@ -1,0 +1,65 @@
+<a class="d-block d-sm-none" data-bs-toggle="collapse" aria-expanded="false" aria-controls="kcPersonalAccountWrapper" href="#kcPersonalAccountWrapper">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM6 8a6 6 0 1 1 12 0A6 6 0 0 1 6 8zm2 10a3 3 0 0 0-3 3 1 1 0 1 1-2 0 5 5 0 0 1 5-5h8a5 5 0 0 1 5 5 1 1 0 1 1-2 0 3 3 0 0 0-3-3H8z" fill="#0D0D0D"/>
+  </svg>
+</a>
+
+<div class="collapse kc-personal-account__wrapper" id="kcPersonalAccountWrapper" class="collapse">
+  <div class="d-flex kc-personal-account__links">
+    <a class="kc-personal-account__link kc-personal-account__link--search" data-bs-toggle="collapse" href="#collapseKSSearch" role="button" aria-expanded="false" aria-controls="collapseKSSearch">
+      <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px" class="d-none d-sm-block">
+        <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"/>
+      </svg>
+      <span class="kc-personal-account__link-text d-block d-sm-none">
+        {{ 'Search'|t }}
+      </span>
+    </a>
+
+    {% if authenticated %}
+      <a class="kc-personal-account__link kc-personal-account__link--favorite" href="/personal/favorites/">
+        <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="d-none d-sm-block">
+          <path d="M6.1875 10.125C6.1875 10.125 0.5 7.0625 0.5 3.45312C0.5 2.66991 0.811132 1.91877 1.36495 1.36495C1.91877 0.811132 2.66991 0.5 3.45312 0.5C4.68852 0.5 5.74672 1.1732 6.1875 2.25C6.62828 1.1732 7.68648 0.5 8.92188 0.5C9.70509 0.5 10.4562 0.811132 11.01 1.36495C11.5639 1.91877 11.875 2.66991 11.875 3.45312C11.875 7.0625 6.1875 10.125 6.1875 10.125Z" stroke="#333333" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="kc-personal-account__link-text d-block d-sm-none">
+          {{ 'Favorites'|t }}
+        </span>
+      </a>
+    {% else %}
+      <a class="kc-personal-account__link kc-personal-account__link--favorite" data-bs-toggle="modal" data-bs-target="#kcLoginModal">
+        <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.1875 10.125C6.1875 10.125 0.5 7.0625 0.5 3.45312C0.5 2.66991 0.811132 1.91877 1.36495 1.36495C1.91877 0.811132 2.66991 0.5 3.45312 0.5C4.68852 0.5 5.74672 1.1732 6.1875 2.25C6.62828 1.1732 7.68648 0.5 8.92188 0.5C9.70509 0.5 10.4562 0.811132 11.01 1.36495C11.5639 1.91877 11.875 2.66991 11.875 3.45312C11.875 7.0625 6.1875 10.125 6.1875 10.125Z" stroke="#333333" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    {% endif %}
+
+    <a class="kc-personal-account__link kc-personal-account__link--cart" href="/personal/cart/">
+      <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="d-none d-sm-block">
+        <path d="M18 0H1.5C1.10218 0 0.720644 0.158035 0.43934 0.43934C0.158035 0.720644 0 1.10218 0 1.5V15C0 15.3978 0.158035 15.7794 0.43934 16.0607C0.720644 16.342 1.10218 16.5 1.5 16.5H18C18.3978 16.5 18.7794 16.342 19.0607 16.0607C19.342 15.7794 19.5 15.3978 19.5 15V1.5C19.5 1.10218 19.342 0.720644 19.0607 0.43934C18.7794 0.158035 18.3978 0 18 0ZM18 15H1.5V1.5H18V15ZM14.25 4.5C14.25 5.69347 13.7759 6.83807 12.932 7.68198C12.0881 8.52589 10.9435 9 9.75 9C8.55653 9 7.41193 8.52589 6.56802 7.68198C5.72411 6.83807 5.25 5.69347 5.25 4.5C5.25 4.30109 5.32902 4.11032 5.46967 3.96967C5.61032 3.82902 5.80109 3.75 6 3.75C6.19891 3.75 6.38968 3.82902 6.53033 3.96967C6.67098 4.11032 6.75 4.30109 6.75 4.5C6.75 5.29565 7.06607 6.05871 7.62868 6.62132C8.19129 7.18393 8.95435 7.5 9.75 7.5C10.5456 7.5 11.3087 7.18393 11.8713 6.62132C12.4339 6.05871 12.75 5.29565 12.75 4.5C12.75 4.30109 12.829 4.11032 12.9697 3.96967C13.1103 3.82902 13.3011 3.75 13.5 3.75C13.6989 3.75 13.8897 3.82902 14.0303 3.96967C14.171 4.11032 14.25 4.30109 14.25 4.5Z" fill="black"/>
+      </svg>
+      <span class="kc-personal-account__cart__count {{ cart_count > 0 ? '' : 'hidden' }}">
+        {{ cart_count }}
+      </span>
+      <span class="kc-personal-account__link-text d-block d-sm-none">
+        {{ 'Cart'|t }}
+      </span>
+    </a>
+
+    {% if authenticated %}
+      <a class="kc-personal-account__link kc-personal-account__link--account" href="/personal/favorites/">
+        <span class="kc-personal-account__username">{{ username }}</span>
+        <svg class="kc-personal-account__icon kc-personal-account__icon--cart d-none d-sm-block" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM6 8a6 6 0 1 1 12 0A6 6 0 0 1 6 8zm2 10a3 3 0 0 0-3 3 1 1 0 1 1-2 0 5 5 0 0 1 5-5h8a5 5 0 0 1 5 5 1 1 0 1 1-2 0 3 3 0 0 0-3-3H8z" fill="#0D0D0D"/></svg>
+      </a>
+    {% else %}
+      <a class="kc-personal-account__link kc-personal-account__link--account" data-bs-toggle="modal" data-bs-target="#kcLoginModal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="d-none d-sm-block">
+          <path d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM6 8a6 6 0 1 1 12 0A6 6 0 0 1 6 8zm2 10a3 3 0 0 0-3 3 1 1 0 1 1-2 0 5 5 0 0 1 5-5h8a5 5 0 0 1 5 5 1 1 0 1 1-2 0 3 3 0 0 0-3-3H8z" fill="#0D0D0D"/>
+        </svg>
+      </a>
+    {% endif %}
+
+  </div>
+
+  <div class="collapse" id="collapseKSSearch">
+    {{ drupal_form('Drupal\\search\\Form\\SearchBlockForm') }}
+  </div>
+</div>

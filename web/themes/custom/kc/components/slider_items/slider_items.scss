@@ -1,0 +1,55 @@
+@import '../../scss/color';
+
+.kc-slider-items {
+  &__arrows-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  &__heading {
+    font-family: 'Mulish-Black';
+    font-size: 2.5rem;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__arrow {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 36px;
+    height: 3rem;
+    width: 3rem;
+    background-color: none;
+    display: flex;
+    align-items: center;
+
+    svg {
+      height: 18px;
+      fill: $white;
+      position: relative;
+    }
+
+    &--prev {
+      svg {
+        rotate: 180deg;
+        left: -5px;
+      }
+    }
+
+    &--next {
+      svg {
+        right: -5px;
+      }
+    }
+  }
+}

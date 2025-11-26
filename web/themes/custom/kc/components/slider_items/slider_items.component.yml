@@ -1,0 +1,51 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Slider items
+status: stable
+libraryOverrides:
+  dependencies:
+    - core/drupalSettings
+    - core/once
+    - kc/splide
+props:
+  type: object
+  properties:
+    classes:
+      type: array
+      title: Classes
+      # @todo Add examples here.
+      examples: []
+    options:
+      type: array
+      title: Options
+    heading:
+      type: array
+      title: Heading
+    items:
+      type: array
+      title: Items
+      # @todo Add examples here.
+      examples: []
+    per_page:
+      type: int
+      title: Items per page
+      # @todo Add examples here.
+      examples: []
+    focus:
+      type: string
+      title: Focus
+    pager:
+      type: boolean
+      title: Pager
+      # @todo Add examples here.
+      examples: []
+    arrows:
+      type: boolean
+      title: Arrows
+      # @todo Add examples here.
+      examples: []
+    base_class:
+      type: string
+      title: Base class name
+    breakpoints:
+      type: string
+      title: Splide breakpoints

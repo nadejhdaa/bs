@@ -1,0 +1,31 @@
+kc-main-catalog:
+  js:
+    layouts/kc-main-catalog/kc-main-catalog.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+
+main_menu:
+  js:
+    layouts/main_menu/main-menu.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+
+kc-main-slider:
+  js:
+    layouts/kc-main-slider/kc-main-slider.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+    - splide
+
+section_slider:
+  js:
+    layouts/section_slider/section-slider.js: {}
+  css:
+    component:
+      layouts/section_slider/section-slider.css: {}

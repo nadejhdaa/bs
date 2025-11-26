@@ -1,0 +1,12 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Product brand
+status: stable
+props:
+  type: object
+  properties:
+    term:
+      type: object
+      title: Term
+    url:
+      type: string
+      title: Url

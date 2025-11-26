@@ -1,0 +1,21 @@
+.layout--section-slider {
+  outline: solid 1px green;
+}
+
+.layout--section-slider > .layout__region {
+  padding: 1rem;
+  outline: solid 1px green;
+}
+
+.layout--section-slider > .layout__region--main {
+  flex-basis: 100%;
+}
+
+@media all and (max-width: 850px) {
+  .layout--section-slider {
+    flex-direction: column;
+  }
+  .layout--section-slider > .layout__region {
+    flex-basis: auto;
+  }
+}

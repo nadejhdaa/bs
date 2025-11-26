@@ -1,0 +1,26 @@
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'container',
+  ]
+%}
+
+{# {% set items = [] %}
+
+{% for item in content.field_items | children(true) %}
+
+
+  {% set items = items|merge([item]) %}
+
+{% endfor %} #}
+
+
+<div{{ attributes.addClass(classes) }}>
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+
+  
+</div>

@@ -1,0 +1,67 @@
+<div class="main-catalog__body__item-content main-catalog__body__item-content">
+
+  {% if title_link %}
+    <div class="main-catalog__body__item__label">
+      <h2>
+        {{ drupal_link(title_link.title, title_link.uri, {attributes: {class: ['main-catalog__body__item__label-link d-block']}}) }}
+      </h2>
+    </div>
+  {% endif %}
+
+  <div class="main-catalog__body__item__content">
+
+    {# <div class="main-catalog__body__brands__alphabetical d-flex py-3">
+      {% for litera, name in terms_data['alphabetical'] %}
+        <div class="main-catalog__body__brands__alphabetical-item">
+          <span class="main-catalog__body__brands__alphabetical-link" data-litera-target="{{ litera }}">
+            {{ litera }}
+          </span>
+        </div>
+      {% endfor %}
+    </div> #}
+
+
+    <div class="main-catalog__body__brands__brand-letter-links">
+
+      {% for letter, list in terms_data['alphabetical'] %}
+
+        <div class="d-flex w-100 pb-2 pt-2 border-bottom" data-letter="{{ letter }}">
+
+          <div class="main-catalog__body__brands__brand-letter pb-2 pt-2">
+            <h4>{{ letter }}</h4>
+          </div>
+
+          <div class="main-catalog__body__brands__brand-links pb-2 pt-2">
+
+            <div class="row w-100">
+              {% set col_count =  (list|length / 4) | round %}
+
+              {% for tid, name in list %}
+
+                {% if loop.first %}
+                  <div class="col-md-3">
+                {% endif %}
+
+                {{ drupal_link(name, 'taxonomy/term/' ~ tid, {attributes: {class: ['main-catalog__body__item__link d-block']}}) }}
+
+                {% if loop.last %}
+                  </div>
+                {% else %}
+                  {% if loop.index%col_count == 0  %}
+                    </div>
+                    <div class="col-md-3">
+                  {% endif %}
+                {% endif %}
+
+              {% endfor %}
+            </div>
+
+          </div>
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+</div>

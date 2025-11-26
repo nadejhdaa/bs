@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display tabs layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout wrapper.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+  {# @DCG Drupal naming convention for CSS classes in layouts seems weird. Feel free to change it. #}
+  {%
+    set classes = [
+      'layout',
+      'layout--kc-main-catalog',
+    ]
+  %}
+
+  <div{{ attributes.addClass(classes) }}>
+    {% if content.main_items %}
+      <div {{ region_attributes.main_items.addClass('layout__region', 'layout__region--main_items') }}>
+        {{ content.main_items }}
+      </div>
+    {% endif %}
+
+    {% if content.main_body %}
+      <div {{ region_attributes.main_body.addClass('layout__region', 'layout__region--main_body') }}>
+        {{ content.main_body }}
+      </div>
+    {% endif %}
+
+  </div>
+
+{% endif %}

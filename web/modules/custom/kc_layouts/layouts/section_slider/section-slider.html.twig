@@ -1,0 +1,71 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display section slider layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout wrapper.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+
+  {# @DCG Drupal naming convention for CSS classes in layouts seems weird. Feel free to change it. #}
+  {%
+    set classes = [
+      'layout',
+      'layout--section',
+      'section',
+      'kc-section',
+      settings['section_class']
+    ]
+  %}
+
+  {%
+    set slider_classes = [
+      'kc-brand-promo-slider',
+      'splide'
+    ]
+  %}
+
+  {% set container_class = settings['container'] == 'container-fluid' ? settings['container'] ~ ' px-0' : settings['container'] %}
+
+  <section{{ attributes.addClass(classes) }}>
+    <div class="container">
+      <h2>
+        Обзор брэндов
+      </h2>
+    </div>
+
+    {% if content.main %}
+    <div class="{{ container_class }}">
+      <div {{ region_attributes.main.addClass('layout__region', 'layout__region--main') }}>
+
+        {{ content.main }}
+        {# {% set items = [] %}
+
+        {% for key, item in content.main %}
+          {% if key|first != '#' %}
+            {% set items = items|merge([item]) %}
+          {% endif %}
+        {% endfor %}
+
+        {% embed "kc:slider_items" with {
+          classes: slider_classes,
+          items: items,
+          per_page: 1,
+          base_class: 'promo-brand',
+          arrows: 1,
+          } %}
+        {% endembed %} #}
+
+      </div>
+    </div>
+    {% endif %}
+
+
+  </section>
+
+{% endif %}

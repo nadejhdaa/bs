@@ -1,0 +1,7 @@
+name: 'KC commerce content'
+type: module
+description: 'KC commerce products, orders add, edit or display functions'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - commerce:commerce

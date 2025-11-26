@@ -1,0 +1,110 @@
+.header {
+  height: $header-height;
+  padding: 0 1rem;
+  z-index: 1;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  min-height: 96px;
+  background-color: #fff;
+
+  .region-header-branding {
+    @include media-breakpoint-down(md) {
+      margin: 0 20px;
+    }
+  }
+
+  .block-kc-personal-account-personal-account {
+    position: relative;
+
+    .kc-personal-account{
+      @include media-breakpoint-down(md) {
+        &__wrapper {
+          position: absolute;
+          right: 0;
+          background-color: $white;
+          padding: 15px 20px;
+          border-radius: 16px;
+          border: 1px solid #eee;
+        }
+        &__links {
+          flex-direction: column;
+          align-items: baseline;
+        }
+        &__link {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &__top {
+    align-items: center;
+    position: relative;
+    border-bottom: rgba(255, 255, 255, 0.25) 1px solid;
+    flex-grow: 1;
+  }
+
+  &__top-left {
+    z-index: 1;
+  }
+
+  &__top-logo {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.kc-personal-account {
+  &__links {
+    gap: 18px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-width: 30px;
+    text-transform: none;
+    position: relative;
+
+    &--favorite {
+      svg {
+        height: 22px;
+        width: auto;
+      }
+    }
+
+    &--cart {
+      svg {
+        height: auto;
+        width: 24px;
+      }
+    }
+
+    &--account {
+      font-size: 16px;
+    }
+  }
+
+  &__cart {
+    &__count {
+      display: inline-flex;
+      font-size: 13px;
+      padding: 3px 5px;
+      text-decoration: none;
+      line-height: 1;
+      border-radius: 16px;
+      color: $white;
+      background-color: $secondary;
+      top: -3px;
+      position: absolute;
+      left: 19px;
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+}

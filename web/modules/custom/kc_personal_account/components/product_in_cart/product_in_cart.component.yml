@@ -1,0 +1,37 @@
+# kc_personal_account/components/card/card.component.yml
+name: Product in cart
+status: stable
+props:
+  attributes:
+    type: object
+    label: Attribute object
+  title:
+    type: string
+    label: Title
+    required: true
+  product_id:
+    type: string
+    label: Product id
+  product_variation_id:
+    type: string
+    label: Product variation id
+  order_id:
+    type: string
+    label: Order id
+  img_uri:
+    type: string
+    label: Img uri
+  product_type:
+    type: string
+    label: Type
+  url:
+    type: string
+    label: Url
+  favorite_link:
+    type: array
+    label: Add to favorite link array
+slots:
+  img:
+    label: Image
+  info:
+    label: Info

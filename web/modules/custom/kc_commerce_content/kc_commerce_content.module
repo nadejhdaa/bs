@@ -1,0 +1,102 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Component\Utility\Html;
+
+/**
+ * @file
+ * Primary module hooks for KC commerce content module.
+ */
+
+ /**
+  * Implements hook_theme().
+  */
+function kc_commerce_content_theme() {
+  return [
+    'kc_price_display' => [
+      'variables' => [
+        'price' => '',
+        'old_price' => '',
+        'percent' => '',
+        'symbol' => '',
+      ],
+    ],
+    'kc_product_cart_link' => [
+      'variables' => [
+        'attributes' => [],
+        // 'minus' => [],
+        'add_to_cart' => [],
+        // 'plus' => [],
+        // 'quantity' => [],
+        'variations' => [],
+        // 'add_to_cart' => [],
+      ],
+    ],
+    'kc_add_to_cart' => [
+      'variables' => [
+        'minus' => [],
+        'quantity' => [],
+        'plus' => [],
+        'attributes' => [],
+        'add_to_cart_link' => []
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function kc_commerce_content_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (str_contains($form_id, 'commerce_product_variation') && str_contains($form_id, 'add_form')) {
+    $product = $form_state->getFormObject()->getEntity()->get('product_id')->getEntity()->getProduct();
+
+    $brand_id = $product->field_brand->target_id;
+    $brand = \Drupal::service('entity_type.manager')->getStorage('taxonomy_term')->load($brand_id);
+    $brand_string = Html::cleanCssIdentifier($brand->getName());
+
+    $sku_parts[] = str_replace(['/\W+/', '-'], ['_'], strtolower($brand_string));
+    $sku_parts[] = $product->id();
+    $sku_parts[] = time();
+
+    $form['sku']['widget'][0]['value']['#default_value'] = implode('_', $sku_parts);
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function kc_commerce_content_preprocess_commerce_product(&$variables) {
+  $product = $variables['product_entity'];
+  $variables['price_markup'] = _kc_commerce_content_price_markup($product);
+}
+
+function _kc_commerce_content_price_markup($product) {
+  $build = [
+    '#theme' => 'kc_price_display',
+    '#price' => '',
+  ];
+
+  $lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $service = Drupal::service('commerce_price.currency_repository');
+
+  $currencies = $service->getAll($lang_code);
+  $currency = reset($currencies);
+  $build['#symbol'] = $currency->getSymbol();
+
+  $variations = $product->getVariations();
+
+  if (!empty($variations)) {
+    $variation = reset($variations);
+
+    $list_price = $variation->getListPrice();
+    if (!empty($list_price)) {
+      $build['#old_price'] = floor($list_price->getNumber());
+    }
+
+    $price = $variation->getPrice();
+    $build['#price'] = floor($price->getNumber());
+  }
+
+  return $build;
+}

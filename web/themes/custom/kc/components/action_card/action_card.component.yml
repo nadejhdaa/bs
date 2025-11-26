@@ -1,0 +1,21 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Action card
+status: stable
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Title
+      # @todo Add examples here.
+      examples: []
+    text:
+      type: string
+      title: Text
+      # @todo Add examples here.
+      examples: []
+    link:
+      type: string
+      title: Link
+      # @todo Add examples here.
+      examples: []

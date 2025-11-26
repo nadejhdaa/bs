@@ -1,0 +1,21 @@
+[data-component-id="kc:gallery_point"] {
+  .kc-point-gallery__thumbnails {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 12px;
+
+    .kc-point-gallery__thumbnail {
+      cursor: pointer;
+    }
+  }
+
+  .kc-point-gallery__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kc-point-gallery__address {
+    flex-grow: 1;
+  }
+}

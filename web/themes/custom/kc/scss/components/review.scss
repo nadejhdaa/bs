@@ -1,0 +1,37 @@
+.kc-review_item {
+  background-color: $white;
+  border-radius: 28px;
+  overflow: hidden;
+
+  &__review-items {
+    padding: 2rem 0;
+  }
+}
+
+.reviews {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  margin-top: 2.25rem;
+  max-width: 716px;
+
+  &__heading {
+    font-size: 36px;
+    font-family: 'Mulish-black';
+    margin-bottom: 24px;
+  }
+
+  &__items {
+    margin-bottom: 48px;
+  }
+}
+
+.kc-review-card {
+  font-size: 16px;
+
+  &__author-date {
+    gap: 1rem;
+    font-family: 'Mulish-bold';
+    color: #999;
+    margin-bottom: 12px;
+  }
+}

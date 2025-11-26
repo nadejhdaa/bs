@@ -1,0 +1,40 @@
+kc_personal_account.cart:
+  path: '/personal/cart'
+  defaults:
+    _title: 'Cart'
+    _form: 'Drupal\kc_personal_account\Form\CartForm'
+  requirements:
+    _permission: 'access content'
+kc_personal_account.add_to_cart_ajax_callback:
+  path: 'add-to-cart-ajax-callback'
+  defaults:
+    _title: 'Add To Cart Ajax Callback'
+    _controller: '\Drupal\kc_personal_account\Controller\AddToCartAjaxCallbackController::addToCart'
+  requirements:
+    _permission: 'access content'
+
+kc_personal_account.update_item_quantity_ajax_callback:
+  path: 'update-item-quantity-ajax-callback/{type}'
+  defaults:
+    _title: 'Update Item Quantity Ajax Callback'
+    _controller: '\Drupal\kc_personal_account\Controller\UpdateItemQuantityAjaxCallbackController'
+  requirements:
+    _permission: 'access content'
+
+kc_personal_account.remove_item_from_order_ajax_callback:
+  path: 'remove-item-from-order-ajax-callback'
+  defaults:
+    _title: 'Add To Cart Ajax Callback'
+    _controller: '\Drupal\kc_personal_account\Controller\RemoveItemFromOrderAjaxCallbackController'
+  requirements:
+    _permission: 'access content'
+
+kc_personal_account.select_variation_ajax_callback:
+  path: 'select-variation-ajax-callback'
+  defaults:
+    _title: 'Add To Cart Ajax Callback'
+    _controller: '\Drupal\kc_personal_account\Controller\SelectVariationAjaxCallbackController'
+  requirements:
+    _permission: 'access content'
+
+ 

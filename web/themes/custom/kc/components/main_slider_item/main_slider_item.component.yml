@@ -1,0 +1,31 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Main slider item
+status: stable
+properties:
+  attributes:
+    type: Drupal\Core\Template\Attribute
+    title: Attributes
+    description: Wrapper attributes.
+  img_uri:
+    type: string
+  title:
+    type: string
+  short_text:
+    type: string
+  link:
+    type: array
+  bg_color:
+    type: array
+  color:
+    type: string
+  bg_img:
+    type: string
+slots:
+  image:
+    title: Image
+  title:
+    title: Title
+  short_text:
+    title: Short text
+  link:
+    title: Link

@@ -1,0 +1,15 @@
+block.settings.kc_catalog_catalog_basecare_block:
+  type: block_settings
+  label: 'Catalog Basecare Block block'
+  mapping:
+    example:
+      type: string
+      label: Example
+
+block.settings.kc_catalog_main_catalog_makup:
+  type: block_settings
+  label: 'Main Catalog Makup block'
+  mapping:
+    example:
+      type: string
+      label: Example

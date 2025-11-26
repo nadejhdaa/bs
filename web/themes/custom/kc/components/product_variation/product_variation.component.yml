@@ -1,0 +1,16 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Product variation
+status: stable
+props:
+  type: object
+  properties:
+    color:
+      type: array
+      title: color
+      # @todo Add examples here.
+      examples: []
+    sizes:
+      type: array
+      title: Sizes
+      # @todo Add examples here.
+      examples: []

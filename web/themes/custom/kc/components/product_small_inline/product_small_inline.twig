@@ -1,0 +1,25 @@
+<div {{ attributes.addClass(['kc-product-small-inline']) }}>
+  <div class="row">
+    <div class="col-2 kc-product-small-inline__product-img">
+      <a href="{{ url }}" class="kc-product-small-inline__product-link kc-product-small-inline__product-link--img">
+        {{ img }}
+      </a>
+    </div>
+
+    <div class="col-10 kc-product-small-inline__product-info">
+      <a href="{{ url }}" class="kc-product-small-inline__product-link kc-product-small-inline__product-link--heading d-block">
+        <div class="kc-product-small-inline__heading">
+          {{ title }}
+        </div>
+      </a>
+
+      {# <div class="kc-product-small-inline__product-type">
+        {{ type }}
+      </div> #}
+
+      <div class="kc-product-small-inline__product-price">
+        {{ price }}
+      </div>
+    </div>
+  </div>
+</div>

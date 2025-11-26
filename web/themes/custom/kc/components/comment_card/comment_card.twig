@@ -1,0 +1,20 @@
+<div {{ attributes.addClass(['kc-review-card', 'mb-3', 'pb-3', 'border-bottom']) }}>
+  <div class="kc-review-card__info d-flex align-items-center justify-content-between">
+    <div class="kc-review-card__author-date d-flex align-items-center">
+      <div class="kc-review-card__author">
+        {{ comment.field_review_name }}
+      </div>
+      <div class="kc-review-card__date">
+        {{ created|date('d.m.Y') }}
+      </div>
+    </div>
+
+    <div class="kc-review-card__rate">
+      {{ comment.field_rating }}
+    </div>
+  </div>
+
+  <div class="kc-review-card__comment">
+    {{ content.field_comment }}
+  </div>
+</div>

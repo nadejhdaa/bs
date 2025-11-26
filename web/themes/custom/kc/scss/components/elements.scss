@@ -1,0 +1,89 @@
+h2 {
+  a {
+    text-decoration: none;
+  }
+}
+
+.kc-link {
+  text-decoration: none;
+
+  &--button {
+    padding: 12px 22px;
+  }
+}
+
+.accordion-button {
+  box-shadow: none;
+}
+
+nav[aria-label="breadcrumb"] {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  color: $gray-600;
+
+  a {
+    color: $gray-600;
+    transition: 0.2s all ease;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.flag {
+  a {
+    display: block;
+    height: inherit;
+
+    svg {
+      height: inherit;
+      width: auto;
+    }
+  }
+
+  &.flag-favorite {
+    svg {
+      stroke: $secondary;
+    }
+  }
+
+  &.action-unflag {
+    svg {
+      fill: $secondary;
+    }
+  }
+}
+
+.field--type-entity-reference {
+  a {
+    text-decoration: none;
+  }
+}
+
+.kc-field-display-inline {
+  display: flex;
+
+  .field__items {
+    display: flex;
+    flex-wrap: wrap;
+
+    .field__item {
+      &:not(:last-child) {
+        margin-right: 16px;
+
+        &:after {
+          content: ', ';
+          display: inline;
+        }
+      }
+
+    }
+  }
+}
+
+.nav-tabs {
+  font-size: 16px;
+  font-family: 'Mulish-Bold';
+}

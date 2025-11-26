@@ -1,0 +1,31 @@
+.kc-action-card {
+  min-height: 420px;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2rem;
+  height: 100%;
+}
+.kc-action-card__heading {
+  font-family: "Mulish-Black";
+  font-size: 28px;
+  margin-bottom: 28px;
+  line-height: 1.3;
+}
+.kc-action-card__description {
+  flex-grow: 1;
+  font-size: 18px;
+}
+.kc-action-card__link {
+  text-decoration: none;
+  display: inline-flex;
+  background: #fff;
+  border-radius: 32px;
+  padding: 14px 38px;
+  font-family: "Mulish-Bold";
+  text-transform: uppercase;
+  font-size: 18px;
+  margin: 24px 0;
+}
+
+/*# sourceMappingURL=action_card.css.map */

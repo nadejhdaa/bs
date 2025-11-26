@@ -1,0 +1,36 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Gallery point
+status: stable
+libraryOverrides:
+  dependencies:
+    - core/once
+    - core/drupalSettings
+    - kc/splide
+props:
+  type: object
+  properties:
+    images:
+      type: array
+      title: Images
+      # @todo Add examples here.
+      examples: []
+    title:
+      type: string
+      title: Title
+      # @todo Add examples here.
+      examples: []
+    phone:
+      type: string
+      title: Phone
+      # @todo Add examples here.
+      examples: []
+    address:
+      type: string
+      title: Address
+      # @todo Add examples here.
+      examples: []
+    description:
+      type: string
+      title: Description
+      # @todo Add examples here.
+      examples: []

@@ -1,0 +1,13 @@
+<div class="kc-cart__order-info" data-selector="kc-cart-order-info">
+  {% if total_price %}
+    <div class="kc-cart__order-info__row">
+      <div class="kc-cart__order-info__label kc-cart__order-info__label--total-price">
+        {{ 'Total'|t }}:
+      </div>
+
+      <div class="kc-cart__order-info__value kc-cart__order-info__value--total-price">
+        {{ total_price }}
+      </div>
+    </div>
+  {% endif %}
+</div>

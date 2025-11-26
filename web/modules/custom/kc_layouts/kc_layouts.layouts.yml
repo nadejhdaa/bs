@@ -1,0 +1,89 @@
+kc_layouts_main:
+  label: 'Main'
+  category: 'KC layouts'
+  path: layouts/main
+  template: main
+  regions:
+    page:
+      label: Page
+    page_top:
+      label: Page top
+    page_bottom:
+      label: Page bottom
+  default_region: content
+  icon_map:
+    - [page_top, page, page_bottom]
+
+kc_layouts_main_catalog:
+  label: 'Main catalog'
+  category: 'KC layouts'
+  path: layouts/kc-main-catalog
+  template: kc-main-catalog
+  library: kc_layouts/kc-main-catalog
+  regions:
+    main_items:
+      label: Main items
+    main_body:
+      label: Main body
+  default_region: main_items
+  icon_map:
+    - [main_items, main_body]
+
+kc_layouts_main_slider_item:
+  label: 'Main slider item'
+  category: 'KC layouts'
+  path: layouts/kc-main-slider-item
+  template: kc-main-slider-item
+  regions:
+    img:
+      label: Image
+    title:
+      label: Title
+    text:
+      label: Short text
+    link:
+      label: Link
+  default_region: img
+  icon_map:
+    - [img, title, text, link]
+
+kc_layouts_section:
+  label: 'Section'
+  category: 'KC Layouts'
+  path: layouts/section
+  template: section
+  regions:
+    main:
+      label: Main
+  default_region: main
+  icon_map:
+    - [main]
+  class: Drupal\kc_layouts\Plugin\Layout\Section
+
+kc_layouts_product_teaser:
+  label: 'Product teaser'
+  category: 'Kc layouts Layouts'
+  path: layouts/product_teaser
+  template: product-teaser
+  regions:
+    main:
+      label: Main content
+    sidebar:
+      label: Sidebar
+  default_region: main
+  icon_map:
+    - [main, main, sidebar]
+
+kc_layouts_section_slider:
+  label: 'Section slider'
+  category: 'Kc layouts Layouts'
+  path: layouts/section_slider
+  template: section-slider
+  library: kc_layouts/section_slider
+  regions:
+    main:
+      label: Main content
+  default_region: main
+  icon_map:
+    - [main]
+  class: Drupal\kc_layouts\Plugin\Layout\SectionSlider

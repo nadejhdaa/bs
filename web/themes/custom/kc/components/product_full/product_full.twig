@@ -1,0 +1,95 @@
+<div class="kc-product-full pb-5 mb-5">
+  <div class="row pb-5 mb-5 g-0">
+    <div class="col-md-5">
+      <div class="kc-product-full__images">
+        {{ product.field_img }}
+      </div>
+
+
+    </div>
+
+    <div class="col-md-7 ps-5">
+      <div class="kc-product-full__rating d-flex align-items-center">
+        {{ product.field_rating }}
+
+        <div class="kc-product-full__comment_count">
+          {% if comment_count == 0 %}
+            {{ 'No comments'|t }}
+          {% else %}
+            <a class="kc-link--target" data-target="product-reviews">
+              {% trans %}
+                {{ comment_count }} review
+              {% plural comment_count %}
+                  {{ comment_count }} reviews
+              {% endtrans %}
+            </a>
+          {% endif %}
+
+        </div>
+      </div>
+      <div class="kc-product-full__title">
+        <h1>
+          {{ title }}
+        </h1>
+      </div>
+
+      <div class="kc-product-full__type">
+        {{ type }}
+      </div>
+
+      <div class="kc-product-full__product-type">
+        {{ product.field_skin_type }}
+      </div>
+
+      <div class="kc-product-full__price">
+        {{ price }}
+      </div>
+
+      <div class="kc-product-full__add-to-favorite">
+        {{ flag_link }}
+      </div>
+
+      <div class="kc-product-full__add-to-cart-wrapper">
+        {{ product.variations }}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row pb-4 mb-4 g-0">
+    {% if tabs|length > 0 %}
+      <ul class="nav nav-tabs kc-product-full__tabs" id="productTabs" role="tablist">
+        {% for key, item in tabs %}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link {{ loop.index == 1 ? 'active' : '' }}" role="{{ key }}" data-bs-toggle="tab" data-bs-target="#{{ key }}" aria-controls="{{ key }}" aria-selected="{{ loop.index == 1 ? 'true' : 'false' }}">
+              {{ item.title }}
+            </button>
+          </li>
+        {% endfor %}
+
+      </ul>
+    {% endif %}
+
+    {% if tabs|length > 0 %}
+      <div class="tab-content px-1 py-4" id="productTabsContent">
+        {% for key, item in tabs %}
+          <div class="tab-pane fade {{ loop.index == 1 ? 'show active' : '' }}" id="{{ key }}" role="tabpanel" aria-labelledby="{{ key }}">
+            {{ item.value }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+ {% if product.field_components %}
+    <div class="kc-product-full__components mt-3 mb-5">
+      <h3>
+        {{ 'Active components'|t }}
+      </h3>
+      {{ product.field_components }}
+    </div>
+  {% endif %}
+
+  {{ product.field_reviews }}
+
+</div>

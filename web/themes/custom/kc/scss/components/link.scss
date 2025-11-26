@@ -1,0 +1,55 @@
+a {
+  color: $gray-900;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+
+.kc-link {
+  &--target {
+    cursor: pointer;
+  }
+
+  &--underlined {
+    display: inline-block;
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 100%;
+      background-color: $gray-400;
+      height: 1px;
+      display: block;
+      bottom: 0;
+      position: absolute;
+      transition: all 0.2s ease;
+
+      &:hover {
+        opacity: 0;
+      }
+    }
+
+    &:after {
+      content: '';
+      width: 0%;
+      left: 50%;
+      background-color: $primary;
+      height: 1px;
+      display: block;
+      z-index: 10;
+      position: absolute;
+      bottom: 0;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      &:after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}

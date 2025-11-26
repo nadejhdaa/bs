@@ -1,0 +1,10 @@
+name: 'KC Personal account'
+type: module
+description: 'Provides personal account functions'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:commerce
+  - drupal:flag
+  - drupal:kc_layouts
+  - drupal:kc_svg

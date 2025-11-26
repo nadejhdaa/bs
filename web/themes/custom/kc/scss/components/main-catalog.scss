@@ -1,0 +1,182 @@
+.main-catalog {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  top: $header-height;
+  min-width: 100vw;
+  min-width: 100%;
+  left: 0;
+
+  &__collapse-btn {
+    padding: 10px 32px;
+
+    @include media-breakpoint-down(md) {
+      padding: 0;
+      cursor: pointer;
+      border-radius: 12px !important;
+      margin: 0;
+    }
+  }
+
+  &__text {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+  &__icon-wrapper {
+    display: none;
+
+    @include media-breakpoint-down(md) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      width: 50px;
+      height: 40px;
+    }
+  }
+
+  &__line {
+    width: 30px;
+    height: 3px;
+    background-color: $white;
+    display: block;
+    border-radius: 3px;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  &__wrapper {
+    position: inherit !important;
+  }
+
+  &__cols {
+    background-color: $white;
+    height: 100%;
+    border-radius: 24px;
+    border: none;
+  }
+
+  &__body {
+    flex-grow: 1;
+    padding: 2rem;
+    height: 100%;
+
+    &-heading {
+      font-family: Mulish-bold;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    &__brands {
+
+      &__brand-letter {
+        width: 60px;
+
+        h4 {
+          margin-bottom: 0;
+        }
+      }
+      &__brand-links {
+        width: calc(100% - 60px);
+      }
+    }
+  }
+
+  &__body-heading {
+    margin-bottom: 22px;
+    font-size: 30px;
+  }
+
+  &__body-item {
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+
+  &__body-item-heading {
+    margin-bottom: 16px;
+    font-family: Mulish-bold;
+    font-size: 22px;
+  }
+
+  &__body-item-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px 20px;
+    padding-bottom: 20px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #eee;
+  }
+
+  &__items {
+    padding: 24px;
+    border-right: 1px solid $gray-200;
+    min-width: 320px;
+
+    .accordion-item {
+      border: none;
+    }
+
+    .accordion-button {
+      background-color: transparent !important;
+      padding: 12px 46px 12px;
+      border-radius: $accordion-border-radius;
+      margin-right: 16px;
+
+      &::after {
+        width: 20px;
+        height: 18px;
+        background-size: auto;
+        display: none;
+      }
+
+      &:not(.collapsed) {
+        box-shadow: none;
+        background-color: transparent !important;
+
+        &[aria-expanded="true"] {
+          background-color: $gray-1 !important;
+
+          &::after {
+            width: 20px;
+            height: 18px;
+            background-size: auto;
+            rotate: 90deg;
+            display: block;
+            position: absolute;
+            right: 8px;
+          }
+        }
+      }
+
+      a {
+        text-decoration: none;
+        font-family: 'Mulish-Bold';
+      }
+    }
+  }
+
+  &__item {
+    &__svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+
+@include media-breakpoint-up(md) {
+  #kcPersonalAccountWrapper.in,
+  #kcPersonalAccountWrapper.collapse {
+    display: block!important;
+  }
+}

@@ -1,0 +1,51 @@
+// Theme variables.
+
+$navbar-brand-image-height: 36px !default;
+$navbar-brand-image-height-lg: 60px !default;
+$navbar-brand-image-width: auto !default;
+$navbar-brand-image-margin: 0 1rem 0 0 !default;
+
+$navbar-brand-site-title-text-transform: uppercase !default;
+$navbar-brand-site-title-font-size: 1.5rem !default;
+$navbar-brand-site-title-font-weight: bold !default;
+$navbar-brand-site-title-letter-spacing: 2px !default;
+$navbar-brand-site-slogan-font-size: .875rem !default;
+
+$region-padding: 0 !default;
+
+$footer-padding: 2rem 0 !default;
+
+$nav-tabs-link-active-bg-sm: #dee2e6 !default;
+
+$local-tasks-primary-margin: 1rem 0 !default;
+$local-tasks-secondary-margin: 0 0 1rem 0 !default;
+
+$table-striped-bg: #f9f9f9 !default;
+
+// Fonts
+$font-family-base: "Mulish-Regular", Roboto, sans-serif;
+$font-size-base: 1.25rem;
+$lead-font-size: $font-size-base * 1;
+
+$primary: #01a49e;
+$secondary: #d63384;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1440px
+);
+
+$btn-padding-y: 10px;
+$btn-padding-x: 3rem;
+
+$btn-font-family: "Mulish-Bold";
+
+$accordion-border-radius: 12px;
+$accordion-bg: transparent !important;
+$accordion-active-bg: transparent !important;
+$accordion-btn-icon-width: 1rem;
+
+$breadcrumb-font-size: 1rem;

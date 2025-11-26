@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display main slider layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout wrapper.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+  {# @DCG Drupal naming convention for CSS classes in layouts seems weird. Feel free to change it. #}
+  {%
+    set classes = [
+      'layout',
+      'layout--kc-main-slider-item',
+    ]
+  %}
+
+  <div{{ attributes.addClass(classes) }}>
+
+    {% if content.img %}
+      <div {{ region_attributes.img.addClass('layout__region', 'layout__region--img') }}>
+        {{ content.img }}
+      </div>
+    {% endif %}
+
+    {% if content.title %}
+      <div {{ region_attributes.title.addClass('layout__region', 'layout__region--title') }}>
+        {{ content.title }}
+      </div>
+    {% endif %}
+
+    {% if content.text %}
+      <div {{ region_attributes.text.addClass('layout__region', 'layout__region--text') }}>
+        {{ content.text }}
+      </div>
+    {% endif %}
+
+    {% if content.link %}
+      <div {{ region_attributes.link.addClass('layout__region', 'layout__region--text') }}>
+        {{ content.link }}
+      </div>
+    {% endif %}
+
+  </div>
+
+{% endif %}

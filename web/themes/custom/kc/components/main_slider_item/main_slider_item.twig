@@ -1,0 +1,67 @@
+{% set styles = [] %}
+{% set main_slider_content_attributes = create_attribute() %}
+
+{% if bg_color %}
+  {% set main_slider_content_bg = 'background-color: ' ~ bg_color ~ ';' %}
+  {% set main_slider_content_attributes = main_slider_content_attributes.setAttribute('style', main_slider_content_bg) %}
+{% endif %}
+
+{% if bg_img %}
+  {% set styles = styles|merge(['background-image: url(' ~ bg_img ~ ');']) %}
+{% endif %}
+
+{% if color %}
+  {% set styles = styles|merge(['color: ' ~ color ~ ';']) %}
+{% endif %}
+
+{% set style = styles|length > 0 ? styles|join('') : '' %}
+
+<div {{ attributes.addClass(classes).setAttribute('style', style) }}>
+
+
+  <div class="container">
+
+    <div{{ main_slider_content_attributes.addClass(['kc-main-slider__item__content']) }} >
+      <div class="kc-main-slider__item__cols">
+
+        <div class="kc-main-slider__item__col-info">
+          {% if title %}
+            {% block title %}
+              <div class="kc-main-slider__item__heading">
+                {{ title }}
+              </div>
+            {% endblock %}
+          {% endif %}
+
+          {% if short_text %}
+            {% block short_text %}
+              <div class="kc-main-slider__item__short-text">
+                {{ short_text }}
+              </div>
+            {% endblock %}
+          {% endif %}
+
+          {% if link %}
+            {% block link %}
+              <div class="kc-main-slider__item__link-wrapper">
+                {{ drupal_link(link.title, link.uri, { attributes: { class: ['kc-main-slider__link', 'rounded-pill', 'btn', 'btn-secondary']}} ) }}
+              </div>
+            {% endblock %}
+          {% endif %}
+        </div>
+
+        <div class="kc-main-slider__item__col-img">
+          {% if img_uri %}
+            {% block image %}
+              <div class="kc-main-slider__item__img-wrapper">
+                {{ drupal_image(img_uri, 'slider_item', {alt: title, loading: 'lazy', class: ['kc-main-slider__item__img']}) }}
+              </div>
+            {% endblock %}
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

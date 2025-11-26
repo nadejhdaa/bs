@@ -1,0 +1,35 @@
+// Sub theme styling.
+@import 'variables_drupal';
+
+// $theme-colors: map-remove($theme-colors, "info", "light", "dark");
+
+// Bootstrap overridden variables.
+// @see https://getbootstrap.com/docs/5.2/customize/sass/#variable-defaults.
+
+
+// Include bootstrap.
+@import '../../../../themes/contrib/bootstrap5/scss/style';
+
+@import 'variables_bootstrap';
+@import 'color';
+@import 'sizes';
+@import 'fonts';
+@import 'typography';
+@import 'custom';
+
+@import 'components/layout';
+@import 'components/theme';
+@import 'components/header';
+@import 'components/misc';
+@import 'components/main-catalog';
+@import 'components/header';
+@import 'components/link';
+@import 'components/elements';
+@import 'components/views';
+@import 'components/section';
+@import 'components/kc-product-card';
+@import 'components/footer';
+@import 'components/add-to-cart-link';
+@import 'components/review';
+@import 'components/kc-personal-account-cart';
+@import 'components/checkout';

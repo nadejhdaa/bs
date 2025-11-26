@@ -1,0 +1,24 @@
+body {
+  background-color: #fbfbfb;
+  height: 100%;
+}
+
+.region{
+  &.region-under-content {
+    padding-bottom: 6rem;
+  }
+}
+
+header.header {
+  transition: 0.2s all ease;
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    box-shadow: 0 1px 12px 0px rgba(0,0,0,0.1);
+
+    .gin--horizontal-toolbar & {
+      top: var(--gin-toolbar-height);
+    }
+  }
+}

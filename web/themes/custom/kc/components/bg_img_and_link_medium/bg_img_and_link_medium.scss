@@ -1,0 +1,19 @@
+@import '../../../../contrib/bootstrap5/scss/style';
+
+.promo {
+  &__item {
+    height: 480px;
+
+    @include media-breakpoint-down(md) {
+      height: 100%;
+    }
+  }
+
+  &__link {
+    font-family: 'Mulish-Bold';
+  }
+
+  &__text {
+    font-size: 18px;
+  }
+}

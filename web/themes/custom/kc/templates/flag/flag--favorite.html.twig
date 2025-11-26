@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Default theme implementation for flag links.
+ *
+ * Available functions:
+ * - flagcount(flag, flaggable) gets the number of flaggings for the given flag and flaggable.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the link element.
+ * - title: The flag link title.
+ * - action: 'flag' or 'unflag'
+ * - flag: The flag object.
+ * - flaggable: The flaggable entity.
+ */
+#}
+{# Attach the flag CSS library.#}
+{{ attach_library('flag/flag.link') }}
+
+{# Depending on the flag action, set the appropriate action class. #}
+{% set icon = '<svg width="107" height="97" viewBox="0 0 107 97" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M90.1056 9.13968C76.9205 1.05215 65.4131 4.31131 58.5003 9.50282C55.6653 11.6315 54.2483 12.6958 53.4145 12.6958C52.5806 12.6958 51.1636 11.6315 48.3287 9.50282C41.4159 4.31131 29.9083 1.05215 16.7235 9.13968C-0.580039 19.7537 -4.49542 54.77 35.4171 84.3118C43.0192 89.9385 46.8202 92.7518 53.4145 92.7518C60.0087 92.7518 63.8098 89.9385 71.4119 84.3118C111.324 54.77 107.409 19.7537 90.1056 9.13968Z" stroke-width="8.5" stroke-linecap="round"/>
+</svg>' %}
+
+{% if action == 'unflag' %}
+    {% set action_class = 'action-unflag' %}
+{% else %}
+    {% set action_class = 'action-flag' %}
+{% endif %}
+
+{# Set the remaining Flag CSS classes. #}
+{%
+  set classes = [
+    'flag',
+    'flag-' ~ flag.id()|clean_class,
+    'js-flag-' ~ flag.id()|clean_class ~ '-' ~ flaggable.id(),
+    action_class,
+  ]
+%}
+
+{# Set nofollow to prevent search bots from crawling anonymous flag links #}
+{% set attributes = attributes.setAttribute('rel', 'nofollow') %}
+<div class="{{classes|join(' ')}}">
+  <a{{ attributes }}>
+    <span class="flag__title">
+      {{ title }}
+    </span>
+    {{ icon|raw }}
+  </a>
+</div>

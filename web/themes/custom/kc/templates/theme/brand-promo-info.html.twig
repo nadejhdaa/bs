@@ -1,0 +1,24 @@
+<div class="kc-brand-promo">
+  <div class="kc-brand-promo-info">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="kc-brand-promo-info__img">
+          {{ drupal_image(img) }}
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="kc-brand-promo-info__heading">
+          {{ drupal_link(link['title'], 'taxonomy/term/' ~ link['tid'], { attributes: {class: ['kc-brand-promo-info__brand-link']}}) }}
+        </div>
+
+        <div class="kc-brand-promo-info__description">
+          {{ description }}
+        </div> 
+      </div>
+    </div>
+
+    <div class="kc-brand-promo-info__products">
+      {{ items }}
+    </div>
+  </div>
+</div>

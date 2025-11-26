@@ -1,0 +1,21 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/tabbable
+  js:
+    js/main.js: {}
+
+splide:
+  js:
+    assets/extra/splide/dist/js/splide.min.js: {}
+  css:
+    theme:
+      assets/extra/splide/dist/css/splide.min.css: {}
+
+kc-main-catalog:
+  js:
+    js/kc-main-catalog/kc-main-catalog.js: {}

@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display section layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout wrapper.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+
+  {# @DCG Drupal naming convention for CSS classes in layouts seems weird. Feel free to change it. #}
+  {%
+    set classes = [
+      'layout',
+      'layout--section',
+      'section',
+      'kc-section',
+      settings['section_class']
+    ]
+  %}
+
+  {% set container_class = settings['container'] == 'container-fluid' ? settings['container'] ~ ' px-0' : settings['container'] %}
+
+  <section{{ attributes.addClass(classes) }}>
+
+      {% if content.main %}
+        <div class="{{ container_class }}">
+          {{ content.main }}
+        </div>
+      {% endif %}
+
+  </section>
+
+{% endif %}

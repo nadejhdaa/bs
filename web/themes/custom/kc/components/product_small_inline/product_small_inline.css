@@ -1,0 +1,12 @@
+.kc-product-small-inline {
+  margin-bottom: 24px;
+}
+.kc-product-small-inline__product-link {
+  text-decoration: none;
+  font-family: "Mulish-Bold";
+}
+.kc-product-small-inline__product-link div {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=product_small_inline.css.map */
