@@ -3,6 +3,7 @@
 use Drupal\Core\Render\Element;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implement hook_preprocess_field().
@@ -192,3 +193,48 @@ function kc_preprocess_field__field_skin_type__commerce_product__full(&$variable
       $variables['items'][$key]['content']['#template'] = '{{ drupal_link(value, "tel:"~value, {attributes: {class: ["ks-phone-link"]}}) }}';
     }
   }
+
+/**
+  * Implement hook_preprocess_hook().
+  */
+function kc_preprocess_field__field_rating__commerce_product__full(&$variables) {
+  $element = $variables['element'];
+
+  if (!empty($element[0]['vote']['#values']['vote_average'])) {
+    $mark = $element[0]['vote']['#values']['vote_average'] * 5 / 100;
+    $variables['items'][0]['content']['#suffix'] = '<span class="kc-vote__value">' . number_format($mark, 2, '.', 2) . '</span>';
+
+    $variables['attributes']['class'][] = 'd-flex';
+    $variables['attributes']['class'][] = 'align-items-center';
+    $variables['attributes']['class'][] = 'gap-1';
+  }
+}
+
+/**
+ * Implement hook_preprocess_hook().
+ */
+function kc_preprocess_field__block_content__field_links__contact_block(&$variables) {
+  $variables['attributes']['class'][] = 'kc-contact-link__items';
+
+  foreach ($variables['items'] as $key => $item) {
+    $url_string = $item['content']['#item']->get('second')->getValue();
+    $classes = [
+      'kc-contact-link__link',
+      'smm__link'
+    ];
+
+    $classes[] = $item['content']['#item']->get('third')->getValue();
+    $class = implode(' ', $classes);
+
+    $variables['items'][$key]['content'] = Markup::create('<a href="' . $url_string . '" class="' . $class . '"></a>');
+
+    $variables['items'][$key]['attributes']->addClass(['kc-contact-link__item']);
+  }
+}
+
+/**
+ * Implement hook_preprocess_hook().
+ */
+function kc_preprocess_field__block_content__field_phone__contact_block(&$variables) {
+  $variables['items'][0]['content']['#template'] = '{{ drupal_link(value, "tel:" ~value, { attributes: { class: ["kc-contact-link__phone-link"]}}) }}';
+}

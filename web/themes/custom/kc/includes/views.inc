@@ -21,6 +21,7 @@ function kc_preprocess_views_view(&$variables) {
     'catalog_makeup',
     'catalog_apteka',
     'catalog_food',
+    'favorites',
   ];
 
   if (in_array($view_id, $views_ids)) {

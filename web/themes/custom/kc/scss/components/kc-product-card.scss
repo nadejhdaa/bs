@@ -65,6 +65,7 @@
     font-family: 'Mulish-Bold';
     display: flex;
     flex-direction: column;
+    color: $gray-800;
 
     &--img {
       margin-bottom: 0;
@@ -129,4 +130,14 @@
     font-size: 14px;
     color: $gray-3;
   }
+
+  .kc-add-to-cart-link {
+    margin-top: 0;
+
+    &__add-to-cart-link {
+      padding: 12px;
+    }
+  }
+
+
 }

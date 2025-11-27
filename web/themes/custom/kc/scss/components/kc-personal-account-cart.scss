@@ -2,7 +2,7 @@
   &-personal-account-cart {
     margin-top: 48px;
     margin-bottom: 48px;
-    padding: 36px 34px;
+    padding: 36px 0px;
     border-radius: 24px;
   }
 
@@ -79,6 +79,8 @@
         height: fit-content;
         display: flex;
         margin-top: 6px;
+        border-radius: 36px;
+        background-color: $gray-200;
 
         .btn-secondary {
           padding: 0 12px 4px 12px;
@@ -91,6 +93,14 @@
           display: inline-flex;
           height: 36px;
           border-radius: 36px;
+          background-color: transparent !important;
+          color: $gray-700 !important;
+
+          &:hover,
+          &:focus,
+          &:focus-visible {
+            box-shadow: none;
+          }
         }
       }
 

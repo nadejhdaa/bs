@@ -12893,7 +12893,7 @@ code {
 }
 .kc-product-full__type {
   margin-bottom: 30px;
-  color: #888;
+  color: #adb5bd;
   font-size: 20px;
   font-family: "Mulish-Semibold";
 }
@@ -12960,8 +12960,8 @@ code {
   stroke: #ab5fc6;
 }
 .kc-product-full .kc-add-to-cart-link__add-to-cart-link {
-  padding: 22px 16px;
-  font-size: 26px;
+  padding: 16px 16px;
+  font-size: 24px;
 }
 .kc-product-full .kc-add-to-cart-link__link {
   width: 320px;

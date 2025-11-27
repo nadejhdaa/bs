@@ -1,5 +1,5 @@
 a {
-  color: $gray-900 !important;
+  color: $gray-900;
   transition: all 0.2s ease;
 
   &:hover {
@@ -7,10 +7,10 @@ a {
   }
 }
 
-
 .kc-link {
   &--target {
     cursor: pointer;
+    text-decoration: none;
   }
 
   &--underlined {

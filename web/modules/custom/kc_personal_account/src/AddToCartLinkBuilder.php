@@ -204,7 +204,7 @@ final class AddToCartLinkBuilder implements AddToCartLinkBuilderInterface {
             'use-ajax',
             'kc-add-to-cart-link__add-to-cart-link',
             'btn',
-            'btn-primary',
+            'btn-secondary',
             'rounded-pill',
           ],
         ],

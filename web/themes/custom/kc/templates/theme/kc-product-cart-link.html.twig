@@ -1,0 +1,21 @@
+ <div{{ attributes }}>
+
+  {% if variations %}
+
+    <div class="kc-add-to-cart-link__variation_links">
+      {% for variation_link in variations %}
+        {{ variation_link }}
+      {% endfor %}
+    </div>
+
+    <div class="kc-add-to-cart-link__variation-info">
+      {{ variation_info|render }}
+    </div>
+
+  {% endif %}
+
+  {% if add_to_cart %}
+    {{ add_to_cart }}
+  {% endif %}
+
+</div>

@@ -16,7 +16,7 @@
     </a>
 
     {% if authenticated %}
-      <a class="kc-personal-account__link kc-personal-account__link--favorite" href="/personal/favorites/">
+      <a class="kc-personal-account__link kc-personal-account__link--favorite" href="{{ path('view.favorites.page_1') }}">
         <span class="kc-personal-account__favorites d-block d-sm-none">{{ 'Favorites|t' }}</span>
         <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="d-none d-sm-block">
           <path d="M6.1875 10.125C6.1875 10.125 0.5 7.0625 0.5 3.45312C0.5 2.66991 0.811132 1.91877 1.36495 1.36495C1.91877 0.811132 2.66991 0.5 3.45312 0.5C4.68852 0.5 5.74672 1.1732 6.1875 2.25C6.62828 1.1732 7.68648 0.5 8.92188 0.5C9.70509 0.5 10.4562 0.811132 11.01 1.36495C11.5639 1.91877 11.875 2.66991 11.875 3.45312C11.875 7.0625 6.1875 10.125 6.1875 10.125Z" stroke="#333333" stroke-linecap="round" stroke-linejoin="round"/>
