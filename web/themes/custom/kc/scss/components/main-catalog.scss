@@ -17,10 +17,11 @@
   }
 
   &__collapse-btn {
-    padding: 10px 32px;
+    padding: 10px 32px !important;
+    font-size: 18px !important;
 
     @include media-breakpoint-down(md) {
-      padding: 0;
+      padding: 0 !important;
       cursor: pointer;
       border-radius: 12px !important;
       margin: 0;

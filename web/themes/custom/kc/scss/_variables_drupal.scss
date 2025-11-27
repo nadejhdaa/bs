@@ -25,7 +25,7 @@ $table-striped-bg: #f9f9f9 !default;
 // Fonts
 $font-family-base: "Mulish-Regular", Roboto, sans-serif;
 $font-size-base: 1.25rem;
-$lead-font-size: $font-size-base * 1;
+$lead-font-size: $font-size-base;
 
 $primary: #01a49e;
 $secondary: #ab5fc6;
@@ -41,7 +41,7 @@ $container-max-widths: (
 $btn-padding-y: 10px;
 $btn-padding-x: 3rem;
 
-$btn-font-family: "Mulish-Bold";
+$btn-font-family: "Mulish-Bold" !important;
 $btn-color: #fff;
 
 $accordion-border-radius: 12px;

@@ -1,0 +1,11 @@
+.btn{
+  &-primary {
+    background: $primary !important;
+    border-color: $primary !important;
+  }
+
+  &-secondary {
+    background: $secondary !important;
+    border-color: $secondary !important;
+  }
+}

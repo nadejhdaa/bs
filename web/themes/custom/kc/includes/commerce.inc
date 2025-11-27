@@ -71,10 +71,14 @@ function kc_preprocess_commerce_product__full(&$variables) {
 
   $variables['tabs'] = $tabs;
 
-  $product_variations = $product->getVariations();
-  $default_product_variation = reset($product_variations);
+  $variables['title'] = $product->getTitle();
 
-  $variables['title'] = $product->getTitle() . ' ' . $default_product_variation->getTitle();
+  $product_variations = $product->getVariations();
+
+  if (!empty($product_variations)) {
+    $default_product_variation = reset($product_variations);
+    $variables['title'] .= ' ' . $default_product_variation->getTitle();
+  }
 }
 
 /**

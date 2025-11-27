@@ -2,6 +2,10 @@ footer {
   background-color: $primary;
   padding-bottom: 6rem;
 
+  a {
+    color: $white !important;
+  }
+
   .nav[data-block="footer"] {
     display: flex;
     flex-wrap: wrap;

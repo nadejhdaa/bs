@@ -2941,7 +2941,7 @@ textarea.form-control-lg {
 .btn, .node-preview-container .node-preview-backlink, a.button, .button, button.link {
   --bs-btn-padding-x: 3rem;
   --bs-btn-padding-y: 10px;
-  --bs-btn-font-family: Mulish-Bold;
+  --bs-btn-font-family: Mulish-Bold !important;
   --bs-btn-font-size: 1.25rem;
   --bs-btn-font-weight: 400;
   --bs-btn-line-height: 1.5;
@@ -12950,7 +12950,7 @@ code {
 }
 .kc-product-full .flag.action-unflag a {
   background-color: rgb(230.4, 132.6, 181.2);
-  color: #fff;
+  color: #fff !important;
 }
 .kc-product-full .flag.action-unflag a svg {
   stroke: #fff;
@@ -12982,6 +12982,7 @@ code {
 .kc-product-full__tabs .nav-item {
   position: relative;
   bottom: -2px;
+  font-size: 20px;
 }
 .kc-product-full__tabs .nav-link, .kc-product-full__tabs .media-library-view--widget .view-header a, .media-library-view--widget .view-header .kc-product-full__tabs a {
   border-top: none !important;
@@ -12996,6 +12997,9 @@ code {
   color: #01a49e !important;
   background-color: transparent !important;
   border-bottom: 3px solid #01a49e !important;
+}
+.kc-product-full__tabs .nav-link:hover, .kc-product-full__tabs .media-library-view--widget .view-header a:hover, .media-library-view--widget .view-header .kc-product-full__tabs a:hover {
+  color: #01a49e;
 }
 
 /*# sourceMappingURL=product_full.css.map */

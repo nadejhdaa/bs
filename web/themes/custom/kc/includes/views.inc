@@ -14,6 +14,13 @@ function kc_preprocess_views_view(&$variables) {
     'brands_listing',
     'products_marketing',
     'discount_page',
+    'catalog_face',
+    'catalog_uhod_dlya_polosti_rta',
+    'catalog_body',
+    'catalog_home',
+    'catalog_makeup',
+    'catalog_apteka',
+    'catalog_food',
   ];
 
   if (in_array($view_id, $views_ids)) {

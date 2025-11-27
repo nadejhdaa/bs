@@ -1,11 +1,13 @@
 body {
   background-color: #fbfbfb;
   height: 100%;
+  font-size: 20px !important;
 }
 
 .region{
   &.region-under-content {
     padding-bottom: 6rem;
+    padding-top: 6rem;
   }
 }
 

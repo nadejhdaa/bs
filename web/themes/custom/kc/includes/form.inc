@@ -16,6 +16,9 @@ function kc_form_comment_review_form_alter(array &$form, FormStateInterface $for
     $form['field_target_product']['widget'][0]['target_id']['#default_value'] = $product_id;
   }
 
+  $form['actions']['submit']['#value'] = t('Send comment');
+  $form['actions']['submit']['#attributes']['class'][] = 'rounded-pill';
+
   $form['field_review_name']['widget'][0]['value']['#title_display'] = 'hidden';
   $form['field_review_name']['widget'][0]['value']['#placeholder'] = t('Your name');
 
