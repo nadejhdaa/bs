@@ -16,6 +16,7 @@
 
   .block-kc-personal-account-personal-account {
     position: relative;
+    z-index: 12;
 
     .kc-personal-account{
       @include media-breakpoint-down(md) {

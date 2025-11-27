@@ -37,10 +37,20 @@ div.fivestar-widget-static {
   border: none;
 }
 
+.modal-body {
+  @include media-breakpoint-down(md) {
+    padding: 16px 12px;
+  }
+}
+
 .modal-content {
   padding: 48px 22px 8px 22px;
   border-radius: 24px;
   border: none;
+
+  @include media-breakpoint-down(md) {
+    padding: 48px 22px 8px 22px;
+  }
 
   .btn-close {
     position: absolute;
@@ -61,6 +71,7 @@ div.fivestar-widget-static {
         width: 100%;
         border: none;
         background-color: $gray-100;
+        color: $black;
 
         &.active {
           background-color: $primary;

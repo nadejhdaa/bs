@@ -12839,6 +12839,11 @@ code {
   padding: 4rem 0 7rem 0;
   height: 100%;
 }
+@media (max-width: 767.98px) {
+  .kc-main-slider__item {
+    padding: 1rem 0 5rem 0;
+  }
+}
 .kc-main-slider__item__content {
   position: relative;
   display: flex;

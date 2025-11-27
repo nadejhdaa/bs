@@ -7,7 +7,7 @@
         <ul class="nav nav-tabs kc-product-full__tabs mb-4" id="productTabs" role="tablist">
           {% for id, form in forms %}
             <li class="nav-item" role="presentation">
-              <button class="btn rounded-pill btn w-100 {{ loop.index == 1 ? 'active' : '' }}" role="{{ id }}" data-bs-toggle="tab" data-bs-target="#{{ id }}" aria-controls="{{ id }}" aria-selected="{{ loop.index == 1 ? 'true' : 'false' }}">
+              <button class="btn rounded-pill btn w-100 btn-sm{{ loop.index == 1 ? ' active' : '' }}" role="{{ id }}" data-bs-toggle="tab" data-bs-target="#{{ id }}" aria-controls="{{ id }}" aria-selected="{{ loop.index == 1 ? 'true' : 'false' }}">
                 {{ form['title'] }}
               </button>
             </li>

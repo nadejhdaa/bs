@@ -20,6 +20,10 @@
     padding: 4rem 0 7rem 0;
     height: 100%;
 
+    @include media-breakpoint-down(md) {
+      padding: 1rem 0 5rem 0;
+    }
+
     &__content {
       position: relative;
       display: flex;
