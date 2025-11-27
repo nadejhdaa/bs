@@ -1,4 +1,5 @@
 @import '../../scss/color';
+@import '../../../../contrib/bootstrap5/scss/style';
 
 .kc-slider-items {
   &__arrows-wrapper {
@@ -14,6 +15,11 @@
     font-size: 32px;
     text-transform: uppercase;
 
+    @include media-breakpoint-down(md) {
+      font-family: 'Mulish-Black';
+      font-size: 26px;
+    }
+
     a {
       text-decoration: none;
     }
@@ -22,6 +28,10 @@
   &__arrows {
     display: flex;
     gap: 1rem;
+
+    @include media-breakpoint-down(md) {
+      gap: 0.5rem;
+    }
   }
 
   &__arrow {

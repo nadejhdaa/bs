@@ -16,12 +16,12 @@
         document.addEventListener('click', (event) => {
           const collapseTrigger = document.querySelector('[aria-controls="mainCatalog"]');
 
-          const collapsibleElement = menuCatalogAccordion[0].querySelector('.main-catalog__cols');
+          const collapsibleElement = menuCatalogAccordion[0].querySelector('.main-catalog__cols--lg');
 
           if (
             !collapsibleElement.contains(event.target) && !collapseTrigger.contains(event.target)
           ) {
-            menuCatalogAccordion[0].classList.remove('show');
+            // menuCatalogAccordion[0].classList.remove('show');
           }
         });
         // Open and close accoriond items on hover.

@@ -90,7 +90,7 @@
 
   &__cart {
     &__count {
-      display: inline-flex;
+      display: flex;
       font-size: 13px;
       padding: 3px 5px;
       text-decoration: none;
@@ -100,7 +100,12 @@
       background-color: $secondary;
       top: -3px;
       position: absolute;
-      left: 19px;
+      right: -8px;
+      left: auto;
+
+      @include media-breakpoint-down(md) {
+        right: -20px;
+      }
 
       &.hidden {
         display: none;

@@ -16,8 +16,7 @@
       href_links.forEach(function(href_link, index) {
         href_link.addEventListener('click', (event) => {
           let target = href_link.getAttribute('data-target');
-          console.log(target)
-
+ 
           let target_element = document.getElementById(target);
           target_element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });

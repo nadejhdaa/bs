@@ -38,7 +38,7 @@
 
   <div class="container">
 
-    <div class="main-catalog__cols d-flex">
+    <div class="main-catalog__cols main-catalog__cols--lg d-none d-lg-flex">
       <div class="main-catalog__items">
         {% for item in items %}
 
@@ -109,8 +109,84 @@
         {% endfor %}
 
       </div>
-
     </div>
+
+    {# Mobile #}
+    <div class="main-catalog__cols main-catalog__cols--sm d-flex d-sm-none">
+      <div class="main-catalog__items">
+        {% for item in items %}
+
+          {% set index = loop.index %}
+
+          {% set id = 'mainCatalogItem'~index %}
+          {% set heading_id = 'mainCatalogHeading'~index %}
+          {% set aria_control = 'mainCatalogCollapse'~index %}
+
+          <div class="accordion-item">
+            <div class="accordion-header" id="{{ heading_id }}">
+              <div class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ aria_control }}" aria-expanded="{{ index == 1 ? 'true' : 'false' }}" aria-controls="{{ aria_control }}">
+
+                {{ link(item.title, item.url) }}
+              </div>
+            </div>
+
+            {% set id = 'mainCatalogItem'~index %}
+            {% set heading_id = 'mainCatalogHeading'~index %}
+            {% set aria_id = 'mainCatalogCollapse'~index %}
+
+            <div id="{{ aria_id }}" class="main-catalog__body-item accordion-collapse collapse{{ index == 1 ? ' show': '' }}" aria-labelledby="{{ heading_id }}" data-bs-parent="#{{ main_id }}">
+
+              <div class="main-catalog__body-heading">
+                {{ link(item.title, item.url, { class:['main-catalog__body-heading-link'] }) }}
+              </div>
+
+              {% if item.below %}
+
+                {% for below_item in item.below %}
+                  <div class="main-catalog__body-item-heading">
+                    {{ below_item.title }}
+                  </div>
+
+                  {% if below_item.below %}
+                    <div class="main-catalog__body-item-links">
+                      {% for item in below_item.below %}
+                        <div class="main-catalog__body-item-link-item">
+                          {{ link(item.title, item.url, { class:['main-catalog__body-item-link'] }) }}
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+
+                {% endfor %}
+
+              {% else %}
+
+                {% if index == 1 %}
+                  {{ drupal_block('main_catalog_body_brands_form_block') }}
+                {% endif %}
+
+              {% endif %}
+            </div>
+
+          </div>
+
+
+        {% endfor %}
+      </div>
+
+      {# <div class="main-catalog__body">
+
+        {% set main_id = 'mainCatalog' %}
+
+        {% for item in items %}
+
+          {% set index = loop.index %}
+
+
+        {% endfor %}
+
+      </div> #}
+    {# Mobile #}
   </div>
 
   {% endmacro %}

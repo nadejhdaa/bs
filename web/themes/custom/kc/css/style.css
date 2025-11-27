@@ -13232,7 +13232,7 @@ header.header.sticky {
   font-size: 16px;
 }
 .kc-personal-account__cart__count {
-  display: inline-flex;
+  display: flex;
   font-size: 13px;
   padding: 3px 5px;
   text-decoration: none;
@@ -13242,7 +13242,13 @@ header.header.sticky {
   background-color: #ab5fc6;
   top: -3px;
   position: absolute;
-  left: 19px;
+  right: -8px;
+  left: auto;
+}
+@media (max-width: 767.98px) {
+  .kc-personal-account__cart__count {
+    right: -20px;
+  }
 }
 .kc-personal-account__cart__count.hidden {
   display: none;
@@ -13559,7 +13565,7 @@ div.fivestar-widget-static {
   font-size: 16px;
 }
 .kc-personal-account__cart__count {
-  display: inline-flex;
+  display: flex;
   font-size: 13px;
   padding: 3px 5px;
   text-decoration: none;
@@ -13569,7 +13575,13 @@ div.fivestar-widget-static {
   background-color: #ab5fc6;
   top: -3px;
   position: absolute;
-  left: 19px;
+  right: -8px;
+  left: auto;
+}
+@media (max-width: 767.98px) {
+  .kc-personal-account__cart__count {
+    right: -20px;
+  }
 }
 .kc-personal-account__cart__count.hidden {
   display: none;

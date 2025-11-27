@@ -10,7 +10,7 @@
   Drupal.behaviors.sectionSlider = {
     attach (context, settings) {
 
-      console.log('It works!');
+ 
 
     }
   };

@@ -12,6 +12,12 @@
   {% endfor %}
 {% endif %}
 
+{% if breakpoints %}
+  {% set slider_options = slider_options|merge(['"breakpoints":' ~ breakpoints ]) %}
+{% else %}
+  {% set slider_options = slider_options|merge(['"breakpoints":{"640": {"perPage": 1}}' ]) %}
+{% endif %}
+
 {% set data_splide = '{' ~ slider_options|join(',') ~ '}' %}
 
 {% set attributes = attributes.setAttribute('data-splide', data_splide) %}
