@@ -29,3 +29,14 @@ function kc_preprocess_menu_link_content__main_catalog__default(&$variables) {
 function kc_preprocess_menu__header_catalog(&$variables) {
   $variables['#attached']['library'][] = 'kc/kc-main-catalog';
 }
+
+
+/**
+ * Implement hook_preprocess_menu_link_content().
+ */
+function kc_preprocess_menu__personal_account_menu(&$variables) {
+  $variables['attributes']['class'][] = 'kc-perconal-account__menu';
+  foreach ($variables['items'] as $key => $item) {
+    $variables['items'][$key]['attributes']['class'] = 'kc-perconal-account__menu-item';
+  }
+}

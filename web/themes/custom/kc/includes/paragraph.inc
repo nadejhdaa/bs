@@ -5,15 +5,6 @@ use Drupal\Component\Utility\Color;
 /**
  * Implement hook_preprocess_paragraph_hook().
  */
-function kc_preprocess_paragraph__slider_item__default(&$variables) {
-
-  $paragraph = $variables['paragraph'];
-  // dsm($paragraph);
-}
-
-/**
- * Implement hook_preprocess_paragraph_hook().
- */
 function kc_preprocess_paragraph__slider_item(&$variables) {
   $paragraph = $variables['paragraph'];
 
@@ -59,6 +50,5 @@ function kc_preprocess_paragraph__action(&$variables) {
   if (!empty($styles)) {
     $style = implode(';', $styles);
     $variables['attributes']['style'] = $style;
-
   }
 }

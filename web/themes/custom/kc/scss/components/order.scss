@@ -1,0 +1,20 @@
+.kc-order {
+  &--lk-short {
+    background-color: $white;
+    padding: 22px 32px;
+    border-radius: 16px;
+    margin-bottom: 26px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+
+  &__heading {
+    flex-grow: 1;
+    font-size: 24px;
+    font-family: 'Mulish-bold';
+  }
+}

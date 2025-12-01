@@ -66,6 +66,7 @@
         "drupal/selective_better_exposed_filters": "^3.0",
         "drupal/simple_menu_permissions": "^3.0",
         "drupal/smart_ip": "^5.0@alpha",
+        "drupal/smtp": "1.x-dev@dev",
         "drupal/svg_image": "^3.2",
         "drupal/symfony_mailer": "^1.6",
         "drupal/taxonomy_manager": "^2.0",
@@ -77,7 +78,8 @@
         "drupal/views_load_more": "2.x-dev@dev",
         "drupal/views_selective_filters": "^2.0@alpha",
         "drupal/votingapi": "4.0.x-dev@dev",
-        "drush/drush": "^13.6"
+        "drush/drush": "^13.6",
+        "phpmailer/phpmailer": "6.6.3"
     },
     "conflict": {
         "drupal/drupal": "*"

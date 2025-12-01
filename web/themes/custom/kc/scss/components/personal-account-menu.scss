@@ -1,0 +1,21 @@
+.kc-perconal-account {
+  &__menu {
+    max-width: 300px;
+    font-family: 'Mulish-Semibold';
+  }
+
+  &__menu-item {
+    margin-bottom: 12px;
+  }
+
+  &__menu-link {
+    border-radius: 12px;
+    padding: 12px 16px !important;
+    display: block;
+    color: $gray-600;
+
+    &.active {
+      background-color: $gray-200;
+    }
+  }
+}

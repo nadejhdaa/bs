@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Template for orders in the 'user' view mode.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - order: The rendered order fields.
+ *   Use 'order' to print them all, or print a subset such as
+ *   'order.order_number'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ order|without('order_number') }}
+ *   @endcode
+ * - order_entity: The order entity.
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass(['kc-order', 'kc-order--user']) }}>
+  <div class="customer-information kc-order__info">
+    <div class="customer-information kc-order__heading">
+      {{ 'Order lk'|t }}
+      {{ order_entity.id }}
+    </div>
+
+    {{ drupal_link('Order details'|t, path('view.lk_order_page.page_1', {'arg_0': order_entity.id})) }}
+    <div class="customer-information kc-order__link">
+    </div>
+  </div>
+  <div class="order-information">
+    {{ order.state }}
+    {{ order.order_items }}
+    {{ order.total_price }}
+  </div>
+</div>

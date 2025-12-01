@@ -8,6 +8,24 @@ use Drupal\Core\Url;
 /**
  * Implements hook_form_alter().
  */
+function kc_form_search_block_form_alter(array &$form, FormStateInterface $form_state) {
+  $form['keys']['#attributes']['placeholder'] = t('Search');
+  $form['actions']['submit']['#prefix'] = '<div class="kc-submit kc-submit--search">';
+  $form['actions']['submit']['#suffix'] = '</div>';
+}
+
+function kc_form_search_form_alter(array &$form, FormStateInterface $form_state) {
+  unset($form['help_link']);
+  $form['#attributes']['class'][] = 'kc-search-form';
+  $form['basic']['keys']['#title_display'] = 'none';
+  $form['basic']['keys']['#attributes']['placeholder'] = t('Search');
+  $form['basic']['actions']['submit']['#prefix'] = '<div class="kc-submit kc-submit--search">';
+  $form['basic']['actions']['submit']['#suffix'] = '</div>';
+}
+
+/**
+ * Implements hook_form_alter().
+ */
 function kc_form_comment_review_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   if (!empty($form_state->getFormObject()->getEntity()->getCommentedEntityId())) {
     $product_id = $form_state->getFormObject()->getEntity()->getCommentedEntityId();

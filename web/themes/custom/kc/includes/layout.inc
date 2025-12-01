@@ -35,9 +35,38 @@ function kc_preprocess_section_slider(&$variables) {
  * Implement kc_preprocess_region().
  */
 function kc_preprocess_region__content(&$variables) {
-  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  $current_path = \Drupal::service('path.current')->getPath();
 
-  if (!$is_front) {
+  $full_width_pages = [
+    '/catalog',
+    '/front',
+  ];
+
+  if (!in_array($current_path, $full_width_pages)) {
     $variables['attributes']['class'][] = 'container';
+  }
+}
+
+/**
+ * Implement kc_preprocess_layout().
+ */
+function kc_preprocess_layout__twocol_section(&$variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+
+  if (str_contains($current_path, '/personal')) {
+    $user = \Drupal::currentUser()->getAccount();
+
+    $variables['attributes']['class'] = [
+      'kc-personal-account__cols',
+      'row',
+    ];
+    $variables['region_attributes']['first']['class'] = [
+      'kc-personal-account__first',
+      'col-md-3',
+    ];
+    $variables['region_attributes']['second']['class'] = [
+      'kc-personal-account__second',
+      'col-md-9',
+    ];
   }
 }

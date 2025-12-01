@@ -1,0 +1,67 @@
+.kc-personal-account {
+  &__wrapper {
+    position: relative;
+  }
+
+  &__search-block {
+    position: fixed;
+    left: 15px;
+    right: 15px;
+    background-color: $white;
+    border-radius: 26px;
+    box-shadow: rgba(0,0,0, 0.2) 1px 1px 4px 1px;
+    padding: 36px;
+
+    .search-block-form {
+      position: relative;
+    }
+
+    .form-search {
+      min-width: 640px;
+      padding: 20px;
+      border-radius: 36px;
+      border-right: none;
+    }
+
+    .form-submit {
+      overflow: hidden;
+      text-indent: -250px;
+      padding: 20px 56px;
+      border-radius: 36px;
+      right: 0;
+    }
+  }
+
+  &__cols {
+    margin-bottom: 5rem;
+  }
+
+  &__second {
+    h3 {
+      text-transform: uppercase;
+    }
+  }
+
+  &__info-block {
+    margin-bottom: 56px;
+
+    .view-content.row {
+      margin-top: 48px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__empty-msg-wrapper {
+    background: $white;
+    display: flex;
+    justify-content: space-between;
+    padding: 36px;
+    border-radius: 16px;
+  }
+
+  &__heading{
+    font-size: 24px;
+    margin-bottom: 12px;
+    font-family: 'Mulish-Black';
+  }
+}

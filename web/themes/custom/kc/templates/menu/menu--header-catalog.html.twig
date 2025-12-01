@@ -34,8 +34,11 @@
 
 
 <div{{ attributes.addClass(classes).setAttribute('id', main_id) }}>
+
   <div class="container">
+
     <div class="main-catalog__cols main-catalog__cols--lg d-flex">
+      <button class="btn-close float-end" type="button" data-bs-toggle="collapse" data-bs-target="#{{ main_id }}" aria-label="Close"></button>
       <div class="main-catalog__items">
         {% for item in items %}
 

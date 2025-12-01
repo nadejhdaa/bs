@@ -36,5 +36,3 @@ kc_personal_account.select_variation_ajax_callback:
     _controller: '\Drupal\kc_personal_account\Controller\SelectVariationAjaxCallbackController'
   requirements:
     _permission: 'access content'
-
- 
