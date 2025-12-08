@@ -70,3 +70,27 @@ function kc_preprocess_layout__twocol_section(&$variables) {
     ];
   }
 }
+
+/**
+ * Implement kc_preprocess_page().
+ */
+function kc_preprocess_page(&$variables) {
+  $variables['content_classes_theme'] = 'kc-page__content';
+  $current_path = \Drupal::service('path.current')->getPath();
+
+  if (str_contains($current_path, '/user')) {
+    $variables['content_classes_theme'] .= ' col-md-4 col-sm-12 mx-auto my-5 kc-page__content--user';
+  }
+}
+
+/**
+ * Implement kc_preprocess_html().
+ */
+function kc_preprocess_html(&$variables) {
+  $variables['body_classes'][] = 'kc-page';
+  $current_path = \Drupal::service('path.current')->getPath();
+
+  if (str_contains($current_path, '/user')) {
+    $variables['body_classes'][] = 'kc-page--user';
+  }
+}

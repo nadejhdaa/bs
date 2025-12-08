@@ -7,9 +7,9 @@
   }
 
   &__info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 36px;
+    flex-grow: 1;
+    font-size: 24px;
+    font-family: 'Mulish-bold';
   }
 
   &__heading {

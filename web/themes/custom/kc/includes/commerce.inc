@@ -92,3 +92,13 @@ function kc_preprocess_commerce_product_variation__teaser(&$variables) {
   $variables['product'] = $product;
   $variables['type'] = $product_data->getTypeString($product);
 }
+
+/**
+ * Implement hook_preprocess_commerce_order__default__lk_short().
+ */
+function kc_preprocess_commerce_order__lk_short(&$variables) {
+  $order = $variables['elements']['#commerce_order'];
+
+  $order_state = $order->getState();
+  $translated_label = $order_state->getLabel();
+}

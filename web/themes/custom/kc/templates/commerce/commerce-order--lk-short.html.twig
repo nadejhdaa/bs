@@ -19,18 +19,27 @@
 #}
 <div{{ attributes.addClass(['kc-order', 'kc-order--lk-short']) }}>
   <div class="customer-information kc-order__info">
-    <div class="customer-information kc-order__heading">
-      {{ 'Order lk'|t }}
-      {{ order_entity.id }}
-    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-12 customer-information kc-order__heading">
+        <div class="kc-order__order-info">
+          {{ 'Order lk'|t }}
+          {{ order_entity.id }}
+        </div>
+        <div class="kc-order__order-status">
+          {{ order.state }}
+        </div>
+      </div>
 
-    {{ drupal_link('Order details'|t, path('view.lk_order_page.page_1', {'arg_0': order_entity.id})) }}
-    <div class="customer-information kc-order__link">
+      <div class="col-md-9 col-sm-12 customer-information kc-order__link">
+        <div class="d-flex justify-content-end">
+          {{ drupal_link('Order details'|t, path('view.lk_order_page.page_1', {'arg_0': order_entity.id})) }}
+        </div>
+
+        <div class="order-information">
+
+          {{ order.order_items }}
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="order-information">
-    {{ order.state }}
-    {{ order.order_items }}
-    {{ order.total_price }}
   </div>
 </div>

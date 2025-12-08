@@ -137,6 +137,12 @@ final class CartForm extends FormBase {
     $carts = $this->cartProvider->getCarts();
 
     if (!empty($carts)) {
+      foreach ($carts as $key => $cart) {
+        if (empty($cart->cart->value)) {
+          unset($carts[$key]);
+        }
+      }
+      
       $cart = reset($carts);
       $form_state->set('cart', $cart);
 
@@ -383,8 +389,8 @@ final class CartForm extends FormBase {
 
   public function createOrder(array &$form, FormStateInterface $form_state) {
     $cart = $form_state->get('cart');
-
     $this->cartProvider->finalizeCart($cart, FALSE);
+
     $url = Url::fromRoute('commerce_checkout.checkout');
     $form_state->setRedirectUrl($url);
   }

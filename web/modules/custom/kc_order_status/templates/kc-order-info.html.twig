@@ -1,0 +1,13 @@
+<div class="d-flex flex-column align-items-center w-100 justify-content-center py-5 px-4 kc-order-state">
+  <p>{{ 'The order state is @state_label'|t({ '@state_label': state_label }) }}</p>
+
+  <p>{{ 'The order created date is: @created_date'|t({ '@created_date': created_date }) }}</p>
+
+  <p>
+    {{ drupal_link('See the order details'|t, path('view.lk_order_page.page_1', { 'arg_0': order_entity.id }), {
+      'attributes' : {
+        'class': 'btn btn-secondary rounded-pill'
+      } }) }}
+  </p>
+
+</div>

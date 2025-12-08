@@ -238,3 +238,14 @@ function kc_preprocess_field__block_content__field_links__contact_block(&$variab
 function kc_preprocess_field__block_content__field_phone__contact_block(&$variables) {
   $variables['items'][0]['content']['#template'] = '{{ drupal_link(value, "tel:" ~value, { attributes: { class: ["kc-contact-link__phone-link"]}}) }}';
 }
+
+/**
+ * Implement hook_preprocess_hook().
+ */
+function kc_preprocess_field__field_img__commerce_product__small_picture(&$variables) {
+  foreach ($variables['items'] as $key => $value) {
+    if ($key > 0) {
+      unset($variables['items'][$key]);
+    }
+  }
+}

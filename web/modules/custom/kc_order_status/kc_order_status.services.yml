@@ -1,0 +1,4 @@
+services:
+  kc_order_status.order_workflow_subscriber:
+    class: Drupal\kc_order_status\EventSubscriber\OrderWorkflowSubscriber
+    arguments: ['@entity_type.manager']

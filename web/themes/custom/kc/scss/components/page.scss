@@ -1,0 +1,16 @@
+.kc-page {
+  &__content {
+    &--user {
+      background-color: $white;
+      padding: 3rem 3rem;
+      border-radius: 2rem;
+    }
+
+    form {
+      p {
+        font-size: 1rem;
+        color: $gray-500;
+      }
+    }
+  }
+}

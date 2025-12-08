@@ -111,7 +111,9 @@ set footer_classes = ' ' ~
   set content_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-lg-6' : ((page.sidebar_first or page.sidebar_second) ? 'col-12 col-lg-9' : 'col-12' )
    %}
 
-
+   {% if content_classes_theme is not empty %}
+     {% set content_classes = content_classes ~ ' ' ~ content_classes_theme %}
+   {% endif %}
 
     {% if page.breadcrumb %}
       <div class="{{ b5_top_container }}">

@@ -27,6 +27,7 @@
         "drupal/color_field": "^3.0",
         "drupal/commerce": "^3.2",
         "drupal/commerce_combine_carts": "^1.1",
+        "drupal/commerce_custom_checkout_message": "^3.0",
         "drupal/commerce_shipping": "2.x-dev@dev",
         "drupal/core-composer-scaffold": "^11.2",
         "drupal/core-project-message": "^11.2",
@@ -49,6 +50,7 @@
         "drupal/layout_builder_kit": "^3.0@beta",
         "drupal/libraries": "^4.1",
         "drupal/mail_login": "^4.2",
+        "drupal/mask": "^2.1@RC",
         "drupal/masquerade": "^2.0",
         "drupal/menu_delete": "^2.4",
         "drupal/menu_item_extras": "^3.1",
@@ -174,6 +176,9 @@
             },
             "drupal/libraries": {
                 "DependencyInjection": "https://www.drupal.org/files/issues/2024-09-17/3367706-15.patch"
+            },
+            "drupal/commerce": {
+                "Allow altering individual pane forms without having to alter the entire checkout form": "https://www.drupal.org/files/issues/2023-01-31/3201864-8-pane-alter-hook.patch"
             }
         }
     }

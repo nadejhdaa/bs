@@ -13101,6 +13101,9 @@ code {
   background: #ab5fc6 !important;
   border-color: #ab5fc6 !important;
 }
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > button.link, .btn-group-lg > .button, .node-preview-container .btn-group-lg > .node-preview-backlink {
+  font-size: 1.2rem;
+}
 
 @media (max-width: 767.98px) {
   .btn, button.link, .button, a.button, .node-preview-container .node-preview-backlink {
@@ -14197,6 +14200,10 @@ footer .region-footer {
   border-radius: 26px;
   padding: 24px 36px;
 }
+.kc-checkout__main > fieldset > legend {
+  font-size: 2rem;
+  font-family: "Mulish-Black";
+}
 .kc-checkout__main fieldset.checkout-pane-payment-information {
   margin-top: 0;
 }
@@ -14223,9 +14230,10 @@ footer .region-footer {
   counter-reset: num;
   padding: 0;
   margin: 24px 0 52px 0;
-  gap: 3rem;
+  gap: 2rem;
   flex-wrap: wrap;
   align-items: center;
+  font-size: 1rem;
 }
 .kc-checkout__progress__step {
   position: relative;
@@ -14253,16 +14261,6 @@ footer .region-footer {
   text-align: right;
   background-color: #adb5bd;
   border-radius: 50px;
-}
-.kc-checkout__progress__step::after {
-  width: 50px;
-  height: 2px;
-  background-color: #adb5bd;
-  content: "";
-  display: inline-flex;
-  position: absolute;
-  top: 17px;
-  right: -66px;
 }
 .kc-checkout__progress__step--current {
   color: #01a49e;
@@ -14694,14 +14692,24 @@ footer .region-footer {
   margin-bottom: 26px;
 }
 .kc-order__info {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 36px;
+  flex-grow: 1;
+  font-size: 24px;
+  font-family: "Mulish-bold";
 }
 .kc-order__heading {
   flex-grow: 1;
   font-size: 24px;
   font-family: "Mulish-bold";
+}
+
+.kc-page__content--user {
+  background-color: #fff;
+  padding: 3rem 3rem;
+  border-radius: 2rem;
+}
+.kc-page__content form p {
+  font-size: 1rem;
+  color: #adb5bd;
 }
 
 /*# sourceMappingURL=style.css.map */

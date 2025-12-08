@@ -14,10 +14,14 @@
     {{ form.back }}
   </div>
 
-  <div class="row px-2">
+  <div class="row px-2 mb-5 pb-3">
     <div class="col-md-8">
       <div class="kc-checkout__main">
         {{ form|without('sidebar', 'actions', 'back') }}
+      </div>
+
+      <div class="kc-checkout__continue mt-1 pt-2 d-flex justify-content-end">
+        {{ form.actions }}
       </div>
     </div>
 
@@ -26,9 +30,7 @@
         <h3>{% trans %} Order summary {% endtrans %}</h3>
         {{ form.sidebar }}
 
-        <div class="kc-checkout__continue mt-5 pt-4 border-top">
-          {{ form.actions }}
-        </div>
+
       </div>
     </div>
   </div>
