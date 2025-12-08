@@ -34,6 +34,9 @@ function kc_order_status_commerce_checkout_pane_form_alter(array &$pane_form, Fo
 
     $entity_manager = \Drupal::entityTypeManager();
 
+    $complete_form['actions']['next']['#attributes'] = [
+      'class' => ['rounded-pill'],
+    ];
 
     switch ($pane_id) {
       case 'review':
@@ -48,7 +51,7 @@ function kc_order_status_commerce_checkout_pane_form_alter(array &$pane_form, Fo
           $pane_form['selected_shipping'] = $order->field_shipping_type->view('full');
           $pane_form['selected_shipping']['#weight'] = -8888;
         }
-        
+
         break;
       case 'review':
         $complete_form['actions']['next']['#submit'][] = 'kc_order_status_set_order_state_validation';
@@ -81,30 +84,33 @@ function kc_order_status_commerce_checkout_pane_form_alter(array &$pane_form, Fo
           if (!empty($result)) {
             $id = reset($result);
             $profile = $storage->load($id);
+
+            if (!$profile->get('field_name')->isEmpty()) {
+              $pane_form['billing_information']['field_name']['widget'][0]['value']['#default_value'] = $profile->field_name->value;
+            }
+
+            if (!$profile->get('field_patronymic')->isEmpty()) {
+              $pane_form['billing_information']['field_patronymic']['widget'][0]['value']['#default_value'] = $profile->field_patronymic->value;
+            }
+
+            if (!$profile->get('field_surname')->isEmpty()) {
+              $pane_form['billing_information']['field_surname']['widget'][0]['value']['#default_value'] = $profile->field_surname->value;
+            }
+
+            if (!$profile->get('field_phone')->isEmpty()) {
+              $pane_form['billing_information']['field_phone']['widget'][0]['value']['#default_value'] = $profile->field_phone->value;
+            }
+
+            if (!$profile->get('field_email')->isEmpty()) {
+              $pane_form['billing_information']['field_email']['widget'][0]['value']['#default_value'] = $profile->field_email->value;
+            }
+            else {
+              $pane_form['billing_information']['field_email']['widget'][0]['value']['#default_value'] = $current_user->getEmail();
+            }
           }
-        }
-
-        if (!$profile->get('field_name')->isEmpty()) {
-          $pane_form['billing_information']['field_name']['widget'][0]['value']['#default_value'] = $profile->field_name->value;
-        }
-
-        if (!$profile->get('field_patronymic')->isEmpty()) {
-          $pane_form['billing_information']['field_patronymic']['widget'][0]['value']['#default_value'] = $profile->field_patronymic->value;
-        }
-
-        if (!$profile->get('field_surname')->isEmpty()) {
-          $pane_form['billing_information']['field_surname']['widget'][0]['value']['#default_value'] = $profile->field_surname->value;
-        }
-
-        if (!$profile->get('field_phone')->isEmpty()) {
-          $pane_form['billing_information']['field_phone']['widget'][0]['value']['#default_value'] = $profile->field_phone->value;
-        }
-
-        if (!$profile->get('field_email')->isEmpty()) {
-          $pane_form['billing_information']['field_email']['widget'][0]['value']['#default_value'] = $profile->field_email->value;
-        }
-        else {
-          $pane_form['billing_information']['field_email']['widget'][0]['value']['#default_value'] = $current_user->getEmail();
+          else {
+            $pane_form['billing_information']['field_email']['widget'][0]['value']['#default_value'] = $current_user->getEmail();
+          }
         }
 
         $pane_form['billing_information']['field_name']['widget'][0]['value']['#title_display'] = 'hidden';
@@ -124,7 +130,6 @@ function kc_order_status_commerce_checkout_pane_form_alter(array &$pane_form, Fo
     }
   }
 }
-
 
 /**
  * If order id draft update order state to "validation".

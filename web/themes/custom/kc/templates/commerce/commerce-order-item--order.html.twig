@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Default order template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - order: The rendered order fields.
+ *   Use 'order' to print them all, or print a subset such as
+ *   'order.order_number'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ order|without('order_number') }}
+ *   @endcode
+ * - order_entity: The order entity.
+ *
+ * @ingroup themeable
+ */
+#}
+{% set classes = [
+  'kc-order__item',
+  'kc-order__item--order',
+
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {{- order_item -}}
+</div>

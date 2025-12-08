@@ -56,24 +56,24 @@ function kc_preprocess_page_title(&$variables) {
       $variables['attributes']['class'][] = 'justify-content-between';
       $variables['attributes']['class'][] = 'align-items-center';
 
-      $profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, 'customer');
-      if (!empty($profile)) {
-        if (!$profile->get('field_surname')->isEmpty()) {
-          $fio[] = $profile->field_surname->value;
-        }
-
-        if (!$profile->get('field_name')->isEmpty()) {
-          $fio[] = $profile->field_name->value;
-        }
-
-        if (!$profile->get('field_name')->isEmpty()) {
-          $fio[] = $profile->field_patronymic->value;
-        }
-
-        if (!empty($fio)) {
-          $variables['title'] = implode(' ', $fio);
-        }
-      }
+      // $profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, 'customer');
+      // if (!empty($profile)) {
+      //   if (!$profile->get('field_surname')->isEmpty()) {
+      //     $fio[] = $profile->field_surname->value;
+      //   }
+      //
+      //   if (!$profile->get('field_name')->isEmpty()) {
+      //     $fio[] = $profile->field_name->value;
+      //   }
+      //
+      //   if (!$profile->get('field_name')->isEmpty()) {
+      //     $fio[] = $profile->field_patronymic->value;
+      //   }
+      //
+      //   if (!empty($fio)) {
+      //     $variables['title'] = implode(' ', $fio);
+      //   }
+      // }
 
       $url = Url::fromRoute('user.logout');
       $link = Link::fromTextAndUrl(t('Logout'), $url, ['attributes' => ['class' => ['s']]])->toRenderable();

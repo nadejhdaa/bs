@@ -56,7 +56,7 @@
 {% if multiple %}
   <div{{ attributes.addClass(classes, 'row py-4 mb-5') }}>
     {% for item in items %}
-      <div{{ item.attributes.addClass('field__item col-md-1 col-xs-2') }}>{{ item.content }}</div>
+      <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
     {% endfor %}
   </div>
 {% else %}

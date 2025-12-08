@@ -13311,6 +13311,13 @@ header.header.sticky {
   position: relative;
 }
 
+.view-commerce-order-item-table {
+  font-size: 16px;
+}
+.view-commerce-order-item-table .views-field-quantity {
+  min-width: 100px;
+}
+
 .header {
   height: 5rem;
   padding: 0 1rem;
@@ -13774,7 +13781,7 @@ section.kc-section {
 }
 
 .kc-section__heading {
-  font-family: "Mulish-Bold";
+  font-family: "Mulish-Black";
   font-size: 32px;
   text-transform: uppercase;
   margin-bottom: 3rem;
@@ -14195,14 +14202,33 @@ footer .region-footer {
   background: #fff;
 }
 
+.kc-checkout__customer-info {
+  margin-top: 24px;
+  border-top: 1px solid #e9ecef;
+  padding-top: 24px;
+}
+.kc-checkout__fieldsets > fieldset {
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+}
 .kc-checkout__main {
   background: #fff;
   border-radius: 26px;
   padding: 24px 36px;
 }
-.kc-checkout__main > fieldset > legend {
+.kc-checkout__main > fieldset:not([data-drupal-selector=edit-review-payment-information], [data-drupal-selector=edit-review-customer-comments]) > legend {
   font-size: 2rem;
   font-family: "Mulish-Black";
+  margin-bottom: 36px;
+}
+.kc-checkout__main .form-type-radio input + label {
+  display: inline-flex;
+}
+.kc-checkout__main .fieldset-wrapper .form-radios {
+  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .kc-checkout__main fieldset.checkout-pane-payment-information {
   margin-top: 0;
@@ -14215,6 +14241,21 @@ footer .region-footer {
 .kc-checkout__main fieldset.checkout-pane-payment-information .form-radios {
   display: flex;
   gap: 12px;
+}
+.kc-checkout__heading {
+  font-size: 2rem;
+  margin-bottom: 36px;
+  font-family: "Mulish-Black";
+}
+.kc-checkout__shipping-info {
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e9ecef;
+}
+.kc-checkout__shipping-info__value {
+  font-family: Mulish-bold;
+  margin-top: 8px;
+  text-transform: uppercase;
 }
 .kc-checkout__secondary {
   background: #fff;
@@ -14230,14 +14271,14 @@ footer .region-footer {
   counter-reset: num;
   padding: 0;
   margin: 24px 0 52px 0;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
   align-items: center;
   font-size: 1rem;
 }
 .kc-checkout__progress__step {
   position: relative;
-  padding: 0 0 0 12px;
+  padding: 3px 0 0 10px;
   margin-left: 48px;
   color: #adb5bd;
   font-family: "Mulish-Bold";
@@ -14253,10 +14294,10 @@ footer .region-footer {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -5px;
-  left: -42px;
-  width: 42px;
-  height: 42px;
+  top: -3px;
+  left: -36px;
+  width: 38px;
+  height: 38px;
   color: #fff;
   text-align: right;
   background-color: #adb5bd;
@@ -14367,6 +14408,12 @@ footer .region-footer {
   height: 100%;
   border-radius: 24px;
   border: none;
+  position: relative;
+}
+.main-catalog__cols button.btn-close, .main-catalog__cols .ui-dialog button.ui-dialog-titlebar-close, .ui-dialog .main-catalog__cols button.ui-dialog-titlebar-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 .main-catalog__body {
   flex-grow: 1;
@@ -14700,6 +14747,15 @@ footer .region-footer {
   flex-grow: 1;
   font-size: 24px;
   font-family: "Mulish-bold";
+}
+.kc-order__item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.kc-order__read-more-link {
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .kc-page__content--user {

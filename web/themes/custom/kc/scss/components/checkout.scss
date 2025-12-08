@@ -9,20 +9,50 @@
 }
 
 .kc-checkout{
+  &__customer-info {
+    margin-top: 24px;
+    border-top: 1px solid $gray-200;
+    padding-top: 24px;
+  }
+
+  &__fieldsets {
+    & > fieldset {
+      border-bottom: 1px solid $gray-200;
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+    }
+  }
+
   &__main {
     background: $white;
     border-radius: 26px;
     padding: 24px 36px;
 
     &>fieldset {
-      &>legend {
-        font-size: 2rem;
-        font-family: 'Mulish-Black';
+      &:not([data-drupal-selector="edit-review-payment-information"], [data-drupal-selector="edit-review-customer-comments"]) {
+        &>legend {
+          font-size: 2rem;
+          font-family: 'Mulish-Black';
+          margin-bottom: 36px;
+        }
+      }
+    }
+
+    .form-type-radio input + label {
+      display: inline-flex;
+    }
+
+    .fieldset-wrapper {
+      .form-radios {
+        gap: 16px;
+        display: flex;
+        flex-wrap: wrap;
       }
     }
 
     fieldset.checkout-pane-payment-information {
       margin-top: 0;
+
 
       &>legend {
         font-size: 28px;
@@ -34,6 +64,24 @@
         display: flex;
         gap: 12px;
       }
+    }
+  }
+
+  &__heading {
+    font-size: 2rem;
+    margin-bottom: 36px;
+    font-family: 'Mulish-Black';
+  }
+
+  &__shipping-info {
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $gray-200;
+
+    &__value {
+      font-family: Mulish-bold;
+      margin-top: 8px;
+      text-transform: uppercase;
     }
   }
 
@@ -53,14 +101,14 @@
     counter-reset: num;
     padding: 0;
     margin: 24px 0 52px 0;
-    gap: 2rem;
+    gap: 1rem;
     flex-wrap: wrap;
     align-items: center;
     font-size: 1rem;
 
     &__step {
       position: relative;
-      padding: 0 0 0 12px;
+      padding: 3px 0 0 10px;
       margin-left: 48px;
       color: $gray-500;
       font-family: 'Mulish-Bold';
@@ -77,16 +125,16 @@
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: -5px;
-        left: -42px;
-        width: 42px;
-        height: 42px;
+        top: -3px;
+        left: -36px;
+        width: 38px;
+        height: 38px;
         color: $white;
         text-align: right;
         background-color: $gray-500;
         border-radius: 50px;
       }
- 
+
       &--current {
         color: $primary;
 

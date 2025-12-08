@@ -62,6 +62,13 @@ function kc_form_user_login_form_alter(array &$form, FormStateInterface $form_st
       'w-100',
     ],
   ];
+  $form['#submit'][] = 'kc_user_login_submit';
+}
+
+function kc_user_login_submit($form, FormStateInterface $form_state) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $url = Url::fromUserInput($current_path);
+  $form_state->setRedirectUrl($url);
 }
 
 /**

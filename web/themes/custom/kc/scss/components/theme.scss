@@ -86,3 +86,10 @@
     position: relative;
   }
 }
+
+.view-commerce-order-item-table  {
+  font-size: 16px;
+  .views-field-quantity {
+    min-width: 100px;
+  }
+}

@@ -43,8 +43,20 @@ class ShippingInfoPane extends CheckoutPaneBase {
     return $pane_form;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function validatePaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
+    $input = $form_state->getUserInput();
+
+    if (empty($input['field_shipping_type'])) {
+      $form_state->setErrorByName('field_shipping_type', $this->t('Please, select the shipping method.'));
+    }
+  }
+
   public function submitPaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
     $input = $form_state->getUserInput();
+
     $this->order->set('field_shipping_type', $input['field_shipping_type']);
     $this->order->save();
   }
