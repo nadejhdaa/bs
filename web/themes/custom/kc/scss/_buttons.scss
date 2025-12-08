@@ -12,4 +12,13 @@
   &-lg {
     font-size: 1.2rem;
   }
+
+  &-sm {
+    font-size: 14px;
+  }
+
+  &-outline-light {
+    border-color: $gray-300;
+    color: $gray-500;
+  }
 }

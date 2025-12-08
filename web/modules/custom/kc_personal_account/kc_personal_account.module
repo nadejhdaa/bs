@@ -26,6 +26,7 @@ function kc_personal_account_theme() {
         'authenticated' => FALSE,
         'username' => '',
         'cart_count' => 0,
+        'orders' => '',
       ],
     ],
     'kc_personal_account_cart_button' => [

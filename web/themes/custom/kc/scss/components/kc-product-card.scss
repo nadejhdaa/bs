@@ -6,12 +6,18 @@
   flex-direction: column;
   overflow: hidden;
 
+  &--short {
+    .kc-add-to-cart-link__quantity-link {
+      min-width: auto;
+      padding: 10px 10px;
+    }
+  }
+
   .kc-add-to-cart-link__link {
     width: 100%;
   }
 
   .flag {
-
     a {
       height: 37px;
       background: rgba(255,255,255, 0.6);
@@ -72,6 +78,10 @@
       max-height: inherit;
       height: 100%;
     }
+
+    &--short {
+      font-size: 16px;
+    }
   }
 
   a {
@@ -103,6 +113,10 @@
 
     @include media-breakpoint-down(md) {
       padding: 16px 0px;
+    }
+
+    &--short {
+      padding: 20px 20px;
     }
   }
 

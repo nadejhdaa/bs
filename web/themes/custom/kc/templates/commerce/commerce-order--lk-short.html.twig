@@ -19,14 +19,14 @@
 #}
 <div{{ attributes.addClass(['kc-order', 'kc-order--lk-short']) }}>
   <div class="customer-information kc-order__info">
-    <div class="customer-information kc-order__heading d-flex justify-content-between align-items-center">
+    <div class="customer-information kc-order__heading d-flex justify-content-between align-items-center mb-4">
       <div class="kc-order__order-info">
         {{ 'Order lk'|t }}
         {{ order_entity.id }}
       </div>
       <div class="d-flex justify-content-end">
         {{ drupal_link('Order details'|t, path('view.lk_order_page.page_1', {'arg_0': order_entity.id}), {
-          'attributes': {'class': 'kc-order__read-more-link'}
+          'attributes': {'class': 'btn btn-sm btn-outline-light rounded-pill'}
         }) }}
       </div>
     </div>

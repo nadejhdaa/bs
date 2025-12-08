@@ -3327,7 +3327,7 @@ textarea.form-control-lg {
 
 .btn-sm, .btn-group-sm > .btn, .node-preview-container .btn-group-sm > .node-preview-backlink, .btn-group-sm > .button, .btn-group-sm > button.link {
   --bs-btn-padding-y: 0.25rem;
-  --bs-btn-padding-x: 0.5rem;
+  --bs-btn-padding-x: 16px;
   --bs-btn-font-size: 1.09375rem;
   --bs-btn-border-radius: var(--bs-border-radius-sm);
 }
@@ -3809,8 +3809,8 @@ textarea.form-control-lg {
 }
 
 .btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .node-preview-container .btn-group-sm > .node-preview-backlink + .dropdown-toggle-split, .btn-group-sm > .button + .dropdown-toggle-split, .btn-group-sm > button.link + .dropdown-toggle-split {
-  padding-right: 0.375rem;
-  padding-left: 0.375rem;
+  padding-right: 12px;
+  padding-left: 12px;
 }
 
 .btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .node-preview-container .btn-group-lg > .node-preview-backlink + .dropdown-toggle-split, .btn-group-lg > .button + .dropdown-toggle-split, .btn-group-lg > button.link + .dropdown-toggle-split {
@@ -12041,7 +12041,7 @@ button.link {
 
 .button--small {
   --bs-btn-padding-y: 0.25rem;
-  --bs-btn-padding-x: 0.5rem;
+  --bs-btn-padding-x: 16px;
   --bs-btn-font-size: 1.09375rem;
   --bs-btn-border-radius: var(--bs-border-radius-sm);
 }
@@ -12099,7 +12099,7 @@ a.button.button-action {
 }
 a.button.button--small {
   --bs-btn-padding-y: 0.25rem;
-  --bs-btn-padding-x: 0.5rem;
+  --bs-btn-padding-x: 16px;
   --bs-btn-font-size: 1.09375rem;
   --bs-btn-border-radius: var(--bs-border-radius-sm);
 }
@@ -12965,6 +12965,7 @@ code {
 }
 .kc-product-full .kc-add-to-cart-link__link {
   width: 320px;
+  background-color: #e9ecef;
 }
 .kc-product-full .kc-add-to-cart-link__quantity {
   padding: 22px 16px;

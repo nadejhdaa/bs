@@ -56,29 +56,20 @@ function kc_preprocess_page_title(&$variables) {
       $variables['attributes']['class'][] = 'justify-content-between';
       $variables['attributes']['class'][] = 'align-items-center';
 
-      // $profile = \Drupal::entityTypeManager()->getStorage('profile')->loadByUser($user, 'customer');
-      // if (!empty($profile)) {
-      //   if (!$profile->get('field_surname')->isEmpty()) {
-      //     $fio[] = $profile->field_surname->value;
-      //   }
-      //
-      //   if (!$profile->get('field_name')->isEmpty()) {
-      //     $fio[] = $profile->field_name->value;
-      //   }
-      //
-      //   if (!$profile->get('field_name')->isEmpty()) {
-      //     $fio[] = $profile->field_patronymic->value;
-      //   }
-      //
-      //   if (!empty($fio)) {
-      //     $variables['title'] = implode(' ', $fio);
-      //   }
-      // }
-
       $url = Url::fromRoute('user.logout');
-      $link = Link::fromTextAndUrl(t('Logout'), $url, ['attributes' => ['class' => ['s']]])->toRenderable();
 
-      $variables['link'] = $link;
+      $svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>';
+      $title = Markup::create('<span>' . t('Logout') . '</span>' . $svg);
+
+      // $link = Link::fromTextAndUrl($title, $url)->toRenderable();
+      // $link['#attributes'] = [
+      //   'class' => [
+      //     'kc-link',
+      //     'kc-link--with-icon',
+      //   ],
+      // ];
+      //
+      // $variables['link'] = $link;
 
       $variables['title_prefix'] = Markup::create('<div class="d-flex justify-content-between align-items-center">');
       $variables['title_suffix'] = Markup::create('</div>');

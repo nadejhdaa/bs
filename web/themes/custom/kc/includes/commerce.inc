@@ -21,6 +21,17 @@ function kc_preprocess_commerce_product__product_teaser(&$variables) {
 /**
  * Implement hook_preprocess_commerce_product__view_mode().
  */
+function kc_preprocess_commerce_product__teaser_short(&$variables) {
+  $product = $variables['product_entity'];
+  $variations = $product->getVariations();
+ 
+  $view_mode = 'teaser_short';
+  $variables['flag_link'] = kc_build_flag_link($product->id(), $view_mode);
+}
+
+/**
+ * Implement hook_preprocess_commerce_product__view_mode().
+ */
 function kc_preprocess_commerce_product__full(&$variables) {
   $product = $variables['product_entity'];
   $variations = $product->getVariations();

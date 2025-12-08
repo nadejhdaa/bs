@@ -6,10 +6,25 @@
     margin-bottom: 26px;
   }
 
+  &__full {
+    border-radius: 16px;
+    background-color: $white;
+    padding: 28px 36px;
+    margin-bottom: 60px;
+  }
+
+  &--user {
+    background-color: $white;
+    padding: 22px 32px;
+    border-radius: 16px;
+    margin-bottom: 26px;
+  }
+
   &__info {
     flex-grow: 1;
     font-size: 24px;
     font-family: 'Mulish-bold';
+    margin-bottom: 36px;
   }
 
   &__heading {

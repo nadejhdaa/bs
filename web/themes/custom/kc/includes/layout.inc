@@ -93,4 +93,5 @@ function kc_preprocess_html(&$variables) {
   if (str_contains($current_path, '/user')) {
     $variables['body_classes'][] = 'kc-page--user';
   }
+ 
 }

@@ -168,4 +168,32 @@
       }
     }
   }
+
+  &__brief-summary {
+    &__row {
+      td {
+        padding: 8px 5px;
+
+        &.views-field-field-img {
+          width: 70px;
+        }
+
+        &.views-field-purchased-entity {
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+}
+
+.checkout-pane.checkout-pane-kc-shipping-completed {
+  margin-top: 60px;
+  padding: 20px 0;
+
+  & > legend {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: 'Mulish-Black';
+  }
 }

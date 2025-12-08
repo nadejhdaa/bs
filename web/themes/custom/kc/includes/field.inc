@@ -25,6 +25,7 @@ function kc_preprocess_field__field_img(&$variables) {
   $view_modes = [
     'product_teaser',
     'product_inline_small',
+    'teaser_short',
   ];
 
   if ($element['#entity_type'] == 'commerce_product' && in_array($element['#view_mode'], $view_modes)) {
@@ -113,15 +114,21 @@ function kc_preprocess_field__block_content(&$variables) {
 function kc_theme_suggestions_field_alter(array &$suggestions, array $variables) {
   $element = $variables['element'];
 
+  $entity_types = [
+    'commerce_product',
+    'commerce_order',
+  ];
   // Check if the field is associated with an entity.
-  if (isset($element['#object']) && method_exists($element['#object'], 'getEntityTypeId') && $element['#object']->getEntityTypeId() == 'commerce_product') {
-    $field_name = $element['#field_name'];
-    $entity_type_id = $element['#object']->getEntityTypeId();
+  if (isset($element['#object']) && method_exists($element['#object'], 'getEntityTypeId')) {
+    if (in_array($element['#object']->getEntityTypeId(), $entity_types)) {
+      $field_name = $element['#field_name'];
+      $entity_type_id = $element['#object']->getEntityTypeId();
 
-    $suggestions[] = 'field__' . $field_name . '__' . $entity_type_id;
+      $suggestions[] = 'field__' . $field_name . '__' . $entity_type_id;
 
-    if (!empty($element['#view_mode'])) {
-      $suggestions[] = 'field__' . $field_name . '__' . $entity_type_id . '__' . $element['#view_mode'];
+      if (!empty($element['#view_mode'])) {
+        $suggestions[] = 'field__' . $field_name . '__' . $entity_type_id . '__' . $element['#view_mode'];
+      }
     }
   }
 }

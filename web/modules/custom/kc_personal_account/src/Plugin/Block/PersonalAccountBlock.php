@@ -72,20 +72,63 @@ final class PersonalAccountBlock extends BlockBase implements ContainerFactoryPl
     return $build;
   }
 
+  public function getUserName() {
+    $username = '';
+
+    $profile_ids = $this->entityTypeManager->getStorage('profile')
+      ->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('uid', $this->account->id())
+      ->condition('type', 'customer')
+      ->sort('created', 'DESC')
+      ->execute();
+
+    if (!empty($profile_ids)) {
+      $profile_id = reset($profile_ids);
+      $profile = $this->entityTypeManager->getStorage('profile')->load($profile_id);
+
+      $fio = [];
+      if (!$profile->get('field_name')->isEmpty()) {
+        $fio[] = $profile->field_name->value;
+      }
+
+      if (!$profile->get('field_surname')->isEmpty()) {
+        $fio[] = $profile->field_surname->value;
+      }
+
+      $username = implode(' ', $fio);
+    }
+    else {
+      $username = $this->account->getEmail();
+    }
+
+    return $username;
+  }
+
   public function buildItems() {
     $user = User::load($this->account->id());
     $profile = $user->get('customer_profiles')->entity;
 
     $authenticated = $this->account->isAuthenticated() ? 1 : FALSE;
     $name = $authenticated ? $this->account->getEmail() : '';
+    $name = $this->getUserName();
 
     $cart_count = $this->getCartItemsCount();
+
+    $orders_ids = $this->entityTypeManager->getStorage('commerce_order')
+      ->getQuery()
+      ->accessCheck()
+      ->condition('uid', $this->account->id())
+      ->execute();
+
+    $orders = !empty($orders_ids) ? count($orders_ids) : '';
 
     return [
       '#theme' => 'kc_personal_account_block',
       '#authenticated' => $authenticated,
       '#username' => $name,
       '#cart_count' => $cart_count,
+      '#orders' => $orders,
     ];
   }
 

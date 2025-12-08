@@ -5,7 +5,6 @@ namespace Drupal\kc_order_status\Plugin\Commerce\CheckoutPane;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Logger\LoggerChannelTrait;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Ajax\HtmlCommand;
 
@@ -21,7 +20,11 @@ use Drupal\Core\Ajax\HtmlCommand;
  * )
  */
 class AddressInfoPane extends CheckoutPaneBase {
-use LoggerChannelTrait;
+
+  public function getStorage() {
+    return $this->entityTypeManager->getStorage('profile');
+  }
+
   /**
    * {@inheritdoc}
    */
@@ -67,53 +70,50 @@ use LoggerChannelTrait;
         foreach ($profiles as $id => $profile) {
           $options[$id] = $profile->field_street->value;
         }
+      }
 
-        $options['add'] = $this->t('Add new address');
+      $options['add'] = $this->t('Add new address');
 
-        $pane_form['select_delivery_profile'] = [
-          '#type' => 'select',
-          '#title' => $this->t('Delivery address'),
-          '#options' => $options,
-          '#ajax' => [
-            'callback' => [$this, 'selectDeliveryAjaxCallback'],
+      $pane_form['select_delivery_profile'] = [
+        '#type' => 'select',
+        '#title' => $this->t('Delivery address'),
+        '#options' => $options,
+        '#ajax' => [
+          'callback' => [$this, 'selectDeliveryAjaxCallback'],
+        ],
+      ];
+
+      $pane_form['delivery_address_wrapper'] = [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => [
+            'kc-checkout__delivery-address',
           ],
-        ];
+        ],
+      ];
 
-        $pane_form['delivery_address_wrapper'] = [
-          '#type' => 'container',
-          '#attributes' => [
-            'class' => [
-              'kc-checkout__delivery-address',
-            ],
-          ],
-        ];
+      $default_profile = !empty($profiles) ? reset($profiles) : NULL;
+      $form_elements = $this->buildProfileForm($default_profile);
 
-        $default_profile = !empty($profiles) ? reset($profiles) : NULL;
-        $form_elements = $this->buildProfileForm($default_profile);
+      $pane_form['delivery_address_wrapper']['delivery_address'] = [
+        '#type' => 'container',
+        '#tree' => 1,
+      ];
 
-        $pane_form['delivery_address_wrapper']['delivery_address'] = [
-          '#type' => 'container',
-          '#tree' => 1,
-        ];
-
-        foreach ($form_elements as $key => $form_element) {
-          $pane_form['delivery_address_wrapper']['delivery_address'][$key] = $form_element;
-        }
-
-
+      foreach ($form_elements as $key => $form_element) {
+        $pane_form['delivery_address_wrapper']['delivery_address'][$key] = $form_element;
       }
     }
+
     return $pane_form;
   }
 
   public function selectDeliveryAjaxCallback(array $pane_form, FormStateInterface $form_state) {
     $input = $form_state->getUserInput();
-
     $id = $input['kc_address_info_pane']['select_delivery_profile'];
-    $storage = $this->entityTypeManager->getStorage('profile');
 
     if (is_numeric($id)) {
-      $profile = $storage->load($id);
+      $profile = $this->getStorage()->load($id);
     }
     else {
       $order = $this->order;
@@ -132,8 +132,6 @@ use LoggerChannelTrait;
     $form_object->setEntity($profile);
 
     $form = \Drupal::formBuilder()->getForm($form_object);
-
-
 
     foreach (Element::children($form) as $key) {
       if (str_contains($key, 'field_')) {
@@ -158,7 +156,7 @@ use LoggerChannelTrait;
         'is_default' => TRUE,
       ];
 
-      $profile = $storage->create($data);
+      $profile = $this->getStorage()->create($data);
     }
 
     $form_object = $this->entityTypeManager->getFormObject('profile', 'edit');
@@ -181,10 +179,9 @@ use LoggerChannelTrait;
 
     if (!empty($input['kc_address_info_pane']['select_delivery_profile'])) {
       $id = $input['kc_address_info_pane']['select_delivery_profile'];
-      $storage = $this->entityTypeManager->getStorage('profile');
 
       if (is_numeric($id)) {
-        $profile = $storage->load($id);
+        $profile = $this->getStorage()->load($id);
       }
       else {
         $uid = $this->order->getCustomerId();
@@ -195,7 +192,7 @@ use LoggerChannelTrait;
           'is_default' => TRUE,
         ];
 
-        $profile = $storage->create($data);
+        $profile = $this->getStorage()->create($data);
       }
 
       $fields = [
@@ -224,7 +221,7 @@ use LoggerChannelTrait;
     $order = $this->order;
     $uid = $order->getCustomerId();
 
-    $storage = $this->entityTypeManager->getStorage('profile');
+    $storage = $this->getStorage();
     $ids = $storage
       ->getQuery()
       ->accessCheck()
@@ -245,7 +242,7 @@ use LoggerChannelTrait;
     $order = $this->order;
     $uid = $order->getCustomerId();
 
-    $storage = $this->entityTypeManager->getStorage('profile');
+    $storage = $this->getStorage();
 
     if (!$order->get('field_delivery_address')->isEmpty()) {
       $profile = $storage->load($order->field_delivery_address->target_id);
@@ -275,6 +272,4 @@ use LoggerChannelTrait;
 
     return $profile;
   }
-
-
 }

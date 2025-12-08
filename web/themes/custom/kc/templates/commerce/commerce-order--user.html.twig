@@ -18,18 +18,22 @@
  */
 #}
 <div{{ attributes.addClass(['kc-order', 'kc-order--user']) }}>
-  <div class="customer-information kc-order__info">
+  <div class="customer-information kc-order__info d-flex">
     <div class="customer-information kc-order__heading">
       {{ 'Order lk'|t }}
       {{ order_entity.id }}
     </div>
 
-    {{ drupal_link('Order details'|t, path('view.lk_order_page.page_1', {'arg_0': order_entity.id})) }}
     <div class="customer-information kc-order__link">
+      {{ drupal_link('Order details'|t, path('view.lk_order_page.page_1', {'arg_0': order_entity.id}), {
+        'attributes': {'class': 'btn btn-sm btn-outline-light rounded-pill'}
+      }) }}
     </div>
   </div>
+
   <div class="order-information">
     {{ order.state }}
+    {{ order.placed }}
     {{ order.order_items }}
     {{ order.total_price }}
   </div>
