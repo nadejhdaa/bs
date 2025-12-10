@@ -31,8 +31,14 @@ class OrderWorkflowSubscriber implements EventSubscriberInterface {
   public static function getSubscribedEvents() {
     $events = [
       'commerce_order.processing_complete.pre_transition' => ['onProcessingCompleteTransition', -100],
+      'order_transition:delivery' => ['test', -100],
     ];
     return $events;
+  }
+
+  public function test($test) {
+    \Drupal::logger()->info('A');
+dsm(123);
   }
 
   /**

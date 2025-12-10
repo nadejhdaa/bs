@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fe3f9b53341e29995a00246585c3fa9",
+    "content-hash": "349779c1ef284e13a36bf59f54ae291e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2604,6 +2604,72 @@
             }
         },
         {
+            "name": "drupal/commerce_email",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/commerce_email.git",
+                "reference": "8.x-1.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/commerce_email-8.x-1.7.zip",
+                "reference": "8.x-1.7",
+                "shasum": "140d4351a3e9982591d9edffade646ed49ca8fac"
+            },
+            "require": {
+                "drupal/commerce": "^2.0 || ^3.0",
+                "drupal/core": "^9.3 || ^10 || ^11",
+                "drupal/token": "*"
+            },
+            "require-dev": {
+                "drupal/advancedqueue": "^1.0",
+                "drupal/commerce_recurring": "^1.0@rc"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.7",
+                    "datestamp": "1758129291",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "jsacksick",
+                    "homepage": "https://www.drupal.org/user/972218"
+                },
+                {
+                    "name": "paul.linney",
+                    "homepage": "https://www.drupal.org/user/928636"
+                },
+                {
+                    "name": "rinasek",
+                    "homepage": "https://www.drupal.org/user/1245514"
+                },
+                {
+                    "name": "rszrama",
+                    "homepage": "https://www.drupal.org/user/49344"
+                },
+                {
+                    "name": "vmarchuk",
+                    "homepage": "https://www.drupal.org/user/306425"
+                }
+            ],
+            "description": "Provides a UI for defining emails to send in response to various Drupal Commerce events.",
+            "homepage": "https://www.drupal.org/project/commerce_email",
+            "support": {
+                "source": "https://git.drupalcode.org/project/commerce_email"
+            }
+        },
+        {
             "name": "drupal/commerce_number_pattern",
             "version": "3.2.0",
             "require": {
@@ -4942,6 +5008,86 @@
             }
         },
         {
+            "name": "drupal/mailsystem",
+            "version": "4.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mailsystem.git",
+                "reference": "8.x-4.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/mailsystem-8.x-4.5.zip",
+                "reference": "8.x-4.5",
+                "shasum": "e52a814a87b343ab69f8d8ef462a9873c1d01158"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10.1 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-4.5",
+                    "datestamp": "1723379369",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "emartoni",
+                    "homepage": "https://www.drupal.org/user/3225331"
+                },
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "les lim",
+                    "homepage": "https://www.drupal.org/user/84263"
+                },
+                {
+                    "name": "manuel garcia",
+                    "homepage": "https://www.drupal.org/user/213194"
+                },
+                {
+                    "name": "miro_dietiker",
+                    "homepage": "https://www.drupal.org/user/227761"
+                },
+                {
+                    "name": "Nafes",
+                    "homepage": "https://www.drupal.org/user/2489926"
+                },
+                {
+                    "name": "pillarsdotnet",
+                    "homepage": "https://www.drupal.org/user/36148"
+                },
+                {
+                    "name": "renatog",
+                    "homepage": "https://www.drupal.org/user/3326031"
+                },
+                {
+                    "name": "tr",
+                    "homepage": "https://www.drupal.org/user/202830"
+                }
+            ],
+            "description": "Mail System",
+            "homepage": "https://www.drupal.org/project/mailsystem",
+            "support": {
+                "source": "https://git.drupalcode.org/project/mailsystem"
+            }
+        },
+        {
             "name": "drupal/mask",
             "version": "2.1.0-rc1",
             "source": {
@@ -5372,6 +5518,59 @@
                 "source": "https://git.drupalcode.org/project/metatag",
                 "issues": "https://www.drupal.org/project/issues/metatag",
                 "docs": "https://www.drupal.org/docs/8/modules/metatag"
+            }
+        },
+        {
+            "name": "drupal/mimemail",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mimemail.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/mimemail-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "787bc90afec9e34d3ba848fb646b7585fdbe70be"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11",
+                "drupal/mailsystem": "^4"
+            },
+            "require-dev": {
+                "drupal/rules": "^4.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1758909753",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "mark_fullmer",
+                    "homepage": "https://www.drupal.org/user/2612816"
+                },
+                {
+                    "name": "tr",
+                    "homepage": "https://www.drupal.org/user/202830"
+                }
+            ],
+            "description": "Sends MIME-encoded emails with embedded images and attachments.",
+            "homepage": "https://www.drupal.org/project/mimemail",
+            "support": {
+                "source": "https://git.drupalcode.org/project/mimemail",
+                "issues": "https://www.drupal.org/project/issues/mimemail"
             }
         },
         {

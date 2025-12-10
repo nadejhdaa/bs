@@ -46,12 +46,7 @@ class CustomCheckoutFlow extends CheckoutFlowWithPanesBase {
       'validation' => [
         'label' => $this->t('The order is placed'),
         'next_label' => $this->t('Complete your order'),
-        'has_sidebar' => TRUE,
-      ],
-      'validation' => [
-        'label' => $this->t('The order is placed'),
-        'next_label' => $this->t('Complete your order'),
-        'has_sidebar' => TRUE,
+        'has_sidebar' => FALSE,
       ],
       'complete' => [
         'label' => $this->t('The order information'),
@@ -59,6 +54,14 @@ class CustomCheckoutFlow extends CheckoutFlowWithPanesBase {
         'has_sidebar' => FALSE,
       ],
     ];
+  }
+
+  protected function onStepChange($step_id) {
+    if ($step_id == 'validation') {
+      $order = $this->getOrder();
+      $order_state = $order->getState();
+      $order->getState()->applyTransitionById('place');
+    }
   }
 
 }

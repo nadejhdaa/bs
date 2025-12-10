@@ -15,7 +15,7 @@
   </div>
 
   <div class="row px-2 mb-5 pb-3">
-    <div class="col-md-8">
+    <div class="{{ form.sidebar ? 'col-md-8' : 'col-md-12' }}">
       <div class="kc-checkout__main">
         {{ form|without('sidebar', 'actions', 'back') }}
       </div>
@@ -25,14 +25,14 @@
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="kc-checkout__secondary">
-        <h3>{% trans %} Order summary {% endtrans %}</h3>
-        {{ form.sidebar }}
-
-
+    {% if form.sidebar %}
+      <div class="col-md-4">
+        <div class="kc-checkout__secondary">
+          <h3>{% trans %} Order summary {% endtrans %}</h3>
+          {{ form.sidebar }}
+        </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 
 </div>

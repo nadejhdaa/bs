@@ -53,6 +53,7 @@ function kc_order_status_commerce_checkout_pane_form_alter(array &$pane_form, Fo
         }
 
         break;
+
       case 'review':
         $complete_form['actions']['next']['#submit'][] = 'kc_order_status_set_order_state_validation';
         break;
@@ -75,7 +76,7 @@ function kc_order_status_commerce_checkout_pane_form_alter(array &$pane_form, Fo
 
           $result = $storage
             ->getQuery()
-            ->accessCheck()
+            ->accessCheck(FALSE)
             ->condition('uid', $uid)
             ->condition('type', 'customer')
             ->sort('changed', 'DESC')
@@ -141,3 +142,21 @@ function kc_order_status_set_order_state_validation(array &$form, FormStateInter
   $cart_provider = \Drupal::service('commerce_cart.cart_provider');
   $cart_provider->finalizeCart($order, 1);
 }
+
+/**
+ * Implements hook_preprocess_commerce_checkout_form().
+ */
+function kc_order_status_preprocess_commerce_checkout_form(&$variables) {
+  if (!empty($variables['form']['#step_id']) && $variables['form']['#step_id'] == 'validation') {
+    unset($variables['form']['sidebar']);
+    // unset($variables['form']['actions']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_commerce_checkout_progress().
+ */
+// function kc_order_status_preprocess_commerce_checkout_progress(&$variables) {
+//   $count = count($variables['steps']) - 1;
+//   unset($variables['steps'][$count]);
+// }
