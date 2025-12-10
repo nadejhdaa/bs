@@ -1,8 +1,29 @@
-<div class="d-flex flex-column align-items-center w-100 justify-content-center py-5 px-4 kc-order-state">
-  <p>{{ 'The order state is @state_label'|t({ '@state_label': state_label }) }}</p>
+<div class="d-flex flex-column align-items-center w-100 justify-content-center py-5 px-4 kc-order-state kc-order-state__order-infromation">
+  <h3 class="text-center">
+    {{ 'Order №@order_id succesfully placed'|t({ '@order_id' : order_entity.id }) }}
+  </h3>
 
-  <p>{{ 'The order created date is: @created_date'|t({ '@created_date': created_date }) }}</p>
+  <div class="kc-order-state__order-infromation-main pb-3 mb-3">
+    <div class="kc-order-state__line">
+      {{ 'The order state is @state_label'|t({ '@state_label': state_label }) }}
+    </div>
 
+    <div class="kc-order-state__line">
+      {{ 'The order created date is: @created_date'|t({ '@created_date': created_date }) }}
+    </div>
+
+    <div class="kc-order-state__line">
+      {{ 'Method of receiving'|t }}:
+      {{ order_entity.field_shipping_type.entity.getName() }}
+    </div>
+
+    <div class="kc-order-state__line">
+      {{ 'Order total'|t }}:
+      {{ order_entity.getTotalPrice|commerce_price_format({'currency_display': 'symbol'}) }}
+    </div>
+  </div>
+
+  <div>
   <p>
     {{ drupal_link('See the order details'|t, path('view.lk_order_page.page_1', { 'arg_0': order_entity.id }), {
       'attributes' : {

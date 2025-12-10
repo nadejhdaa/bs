@@ -94,7 +94,7 @@ class AddToCartLinkFormatter extends FormatterBase {
    */
   public function settingsForm(array $form, FormStateInterface $form_state): array {
     $form = parent::settingsForm($form, $form_state);
-// dsm($form_state->getFormObject()->getEntity());
+
     $form['display_variations'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Show a choice of variations'),

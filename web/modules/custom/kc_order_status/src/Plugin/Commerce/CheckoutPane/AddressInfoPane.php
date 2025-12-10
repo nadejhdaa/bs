@@ -65,7 +65,7 @@ class AddressInfoPane extends CheckoutPaneBase {
     // Fill the delivery profile.
     elseif ($shipping_type == '2') {
       $profiles = $this->loadUserDeliveryProfiles();
-dsm($profiles);
+
       if (!empty($profiles)) {
         foreach ($profiles as $id => $profile) {
           $options[$id] = $profile->field_street->value;

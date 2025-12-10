@@ -9,19 +9,21 @@ use Drupal\Core\Utility\Token;
 use Drupal\commerce_checkout\Attribute\CommerceCheckoutPane;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\CheckoutFlowInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\commerce_price\CurrencyFormatter;
+use Drupal\commerce_price\Price;
 
 /**
  * Provides a custom message pane.
  *
  * @CommerceCheckoutPane(
- *   id = "kc_shipping_completed",
+ *   id = "kc_order_information",
  *   label = @Translation("The order information"),
  *   display_label = @Translation("The order information"),
- *   default_step = "completed",
+ *   default_step = "order_information",
  *   wrapper_element = "fieldset",
  * )
  */
-class Completed extends CheckoutPaneBase {
+class OrderInformation extends CheckoutPaneBase {
 
   /**
    * {@inheritdoc}
@@ -30,15 +32,16 @@ class Completed extends CheckoutPaneBase {
     $order = $this->order;
 
     $state_label = $this->getStateLabel();
-
     $created_date = date('d.m.Y', $order->getCreatedTime());
 
     $pane_form['message'] = [
       '#theme' => 'kc_order_info',
-      '#order_entity' => $this->order,
+      '#order_entity' => $order,
       '#state_label' => $this->t($state_label),
       '#created_date' => $created_date,
     ];
+
+    $pane_form['#title'] = '';
 
     return $pane_form;
   }

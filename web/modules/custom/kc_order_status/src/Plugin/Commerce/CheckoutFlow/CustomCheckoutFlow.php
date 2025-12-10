@@ -4,6 +4,9 @@ namespace Drupal\kc_order_status\Plugin\Commerce\CheckoutFlow;
 
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\CheckoutFlowWithPanesBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\commerce_checkout\Event\CheckoutEvents;
+use Drupal\commerce_order\Event\OrderEvent;
+use Drupal\commerce_order\Entity\OrderInterface;
 
 /**
  * @CommerceCheckoutFlow(
@@ -48,7 +51,7 @@ class CustomCheckoutFlow extends CheckoutFlowWithPanesBase {
         'next_label' => $this->t('Complete your order'),
         'has_sidebar' => FALSE,
       ],
-      'complete' => [
+      'order_information' => [
         'label' => $this->t('The order information'),
         'next_label' => $this->t('The order information'),
         'has_sidebar' => FALSE,
@@ -57,10 +60,29 @@ class CustomCheckoutFlow extends CheckoutFlowWithPanesBase {
   }
 
   protected function onStepChange($step_id) {
-    if ($step_id == 'validation') {
+    if ($step_id == 'review') {
       $order = $this->getOrder();
       $order_state = $order->getState();
+      $order_state_transitions = $order_state->getTransitions();
+
+    }
+
+    if ($step_id == 'validation') {
+      $order = $this->getOrder();
+      $event = new OrderEvent($order);
+      // $this->eventDispatcher->dispatch($event, CheckoutEvents::COMPLETION);
+      $order_state = $order->getState();
       $order->getState()->applyTransitionById('place');
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getStepId($requested_step_id = NULL) {
+    // Customers can't edit orders that have already been placed.
+    if ($this->getOrder()->getState()->getId() != 'draft') {
+      return 'order_information';
     }
   }
 
