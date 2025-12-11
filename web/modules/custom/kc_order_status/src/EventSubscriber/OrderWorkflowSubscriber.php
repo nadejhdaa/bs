@@ -38,7 +38,6 @@ class OrderWorkflowSubscriber implements EventSubscriberInterface {
 
   public function test($test) {
     \Drupal::logger()->info('A');
-dsm(123);
   }
 
   /**

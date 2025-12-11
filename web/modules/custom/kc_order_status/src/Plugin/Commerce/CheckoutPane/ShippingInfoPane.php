@@ -38,8 +38,8 @@ class ShippingInfoPane extends CheckoutPaneBase {
     unset($pane_form['field_shipping_type']['widget']['_none']);
     unset($pane_form['field_shipping_type']['widget']['#options']['_none']);
 
-    $pane_form['field_shipping_type']['widget']['#default_value'] = 1;
-
+    $options_keys = array_keys($pane_form['field_shipping_type']['widget']['#options']);
+ 
     return $pane_form;
   }
 

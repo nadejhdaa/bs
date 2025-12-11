@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Render\Markup;
 
 /**
  * Provides a custom message pane.
@@ -62,6 +63,7 @@ class AddressInfoPane extends CheckoutPaneBase {
       $pane_form['field_pick_up_point']['widget']['#required'] = 1;
       $pane_form['field_pick_up_point']['#required'] = 1;
     }
+
     // Fill the delivery profile.
     elseif ($shipping_type == '2') {
       $profiles = $this->loadUserDeliveryProfiles();
@@ -74,25 +76,39 @@ class AddressInfoPane extends CheckoutPaneBase {
 
       $options['add'] = $this->t('Add new address');
 
-      $pane_form['select_delivery_profile'] = [
+      $pane_form['delivery_address_wrapper'] = [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => [
+            'kc-checkout-pane__delivery-address',
+          ],
+        ],
+      ];
+
+      $pane_form['delivery_address_wrapper']['heading'] = [
+        '#type' => 'item',
+        '#markup' => Markup::create('<div class="kc-checkout-pane__heading">' . $this->t('Delivery address') . '</div>'),
+      ];
+
+      $pane_form['delivery_address_wrapper']['select_delivery_profile'] = [
         '#type' => 'select',
-        '#title' => $this->t('Delivery address'),
+        '#title' => $this->t('Use delivery address'),
         '#options' => $options,
         '#ajax' => [
           'callback' => [$this, 'selectDeliveryAjaxCallback'],
         ],
       ];
 
-      $pane_form['delivery_address_wrapper'] = [
-        '#type' => 'container',
-        '#attributes' => [
-          'class' => [
-            'kc-checkout__delivery-address',
-          ],
-        ],
-      ];
+      if (!$order->get('field_delivery_address')->isEmpty()) {
+        $default_options_id = $order->field_delivery_address->target_id;
+        $default_profile = $this->entityTypeManager->getStorage('profile')->load($default_options_id);
+      }
+      else {
+        $default_options_id = reset($options);
+        $default_profile = !empty($profiles) ? reset($profiles) : NULL;
+      }
 
-      $default_profile = !empty($profiles) ? reset($profiles) : NULL;
+      $pane_form['select_delivery_profile']['#default_value'] = $default_options_id;
       $form_elements = $this->buildProfileForm($default_profile);
 
       $pane_form['delivery_address_wrapper']['delivery_address'] = [
@@ -102,6 +118,30 @@ class AddressInfoPane extends CheckoutPaneBase {
 
       foreach ($form_elements as $key => $form_element) {
         $pane_form['delivery_address_wrapper']['delivery_address'][$key] = $form_element;
+
+        switch ($key) {
+          case 'field_flat':
+            $pane_form['delivery_address_wrapper']['delivery_address'][$key]['#prefix'] = '<div class="row">';
+            $pane_form['delivery_address_wrapper']['delivery_address'][$key]['#attributes']['class'][] = 'col-md-3 col-sm-6';
+            $pane_form['delivery_address_wrapper']['delivery_address'][$key]['widget'][0]['value']['#title_display'] = 'hidden';
+            break;
+
+          case 'field_intercom':
+            $pane_form['delivery_address_wrapper']['delivery_address'][$key]['#suffix'] = '</div>';
+            $pane_form['delivery_address_wrapper']['delivery_address'][$key]['#attributes']['class'][] = 'col-md-3 col-sm-6';
+            $pane_form['delivery_address_wrapper']['delivery_address'][$key]['widget'][0]['value']['#title_display'] = 'hidden';
+            break;
+
+          case 'field_entrance':
+          case 'field_floor':
+            $pane_form['delivery_address_wrapper']['delivery_address'][$key]['#attributes']['class'][] = 'col-md-3 col-sm-6';
+            $pane_form['delivery_address_wrapper']['delivery_address'][$key]['widget'][0]['value']['#title_display'] = 'hidden';
+            break;
+        }
+      }
+
+      if (!$order->get('billing_profile')->isEmpty()) {
+        $pane_form['billing_profile'] = $order->get('billing_profile')->view();
       }
     }
 
@@ -125,7 +165,7 @@ class AddressInfoPane extends CheckoutPaneBase {
         'is_default' => TRUE,
       ];
 
-      $profile = $storage->create($data);
+      $profile = $this->getStorage()->create($data);
     }
 
     $form_object = $this->entityTypeManager->getFormObject('profile', 'edit');

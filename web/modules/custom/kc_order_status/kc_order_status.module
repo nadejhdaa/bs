@@ -39,6 +39,8 @@ function kc_order_status_commerce_checkout_pane_form_alter(array &$pane_form, Fo
     ];
 
     switch ($pane_id) {
+      case 'customer_comments':
+        $pane_form['comments']['#rows'] = 3;
       case 'review':
         if (!$order->get('field_delivery_address')->isEmpty()) {
           $profile = $entity_manager->getStorage('profile')->load($order->field_delivery_address->target_id);
